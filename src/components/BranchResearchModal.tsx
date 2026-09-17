@@ -22,7 +22,9 @@ interface BranchResearchModalProps {
     branchId: string,
     modificationType: BranchModificationType,
     findingsMarkdown: string,
-    action: string
+    action: string,
+    userNote?: string,
+    evidences?: any[]
   ) => void;
 }
 
@@ -35,6 +37,8 @@ export const BranchResearchModal: React.FC<BranchResearchModalProps> = ({
   const [isExecuting, setIsExecuting] = useState(false);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [findings, setFindings] = useState(branch.findingsMarkdown || "");
+  const [branchEvidences, setBranchEvidences] = useState<any[]>(branch.evidences || []);
+  const [userNote, setUserNote] = useState("专家已核准分支调查结论，同意带回主线重新推理。");
   const [modificationType, setModificationType] = useState<BranchModificationType>(
     branch.modificationType || "modify_judgment"
   );
@@ -120,6 +124,9 @@ export const BranchResearchModal: React.FC<BranchResearchModalProps> = ({
       }
 
       setFindings(json.data.branchFindingsMarkdown || "");
+      if (json.data.evidences && Array.isArray(json.data.evidences)) {
+        setBranchEvidences(json.data.evidences);
+      }
       if (json.data.modificationType) {
         setModificationType(json.data.modificationType);
       }
@@ -149,7 +156,14 @@ export const BranchResearchModal: React.FC<BranchResearchModalProps> = ({
       alert("请先执行分支研究以产出分析成果，再带回主线！");
       return;
     }
-    onMergeBranchToMainline(branch.id, modificationType, findings, recommendedAction);
+    onMergeBranchToMainline(
+      branch.id,
+      modificationType,
+      findings,
+      recommendedAction,
+      userNote,
+      branchEvidences
+    );
     onClose();
   };
 
@@ -378,6 +392,19 @@ export const BranchResearchModal: React.FC<BranchResearchModalProps> = ({
                     className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 text-xs focus:outline-none focus:border-amber-400"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="text-[11px] text-slate-400 block mb-1">
+                  人类投资决策专家审核批注 (Human Confirmation Note)：
+                </label>
+                <input
+                  type="text"
+                  value={userNote}
+                  onChange={(e) => setUserNote(e.target.value)}
+                  placeholder="填写专家审核意见（例如：已核准调查事实，赞比亚新政府保留了优惠税率，同意重新推理修正财务节点）"
+                  className="w-full p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 text-xs focus:outline-none focus:border-amber-400"
+                />
               </div>
             </div>
           </div>

@@ -1,1 +1,204 @@
 @import "tailwindcss";
+
+/* 传统日光版界面配色（高辨识度白底、统一色系、高对比度深色文字：黑、深蓝、深红、深绿、深金） */
+.theme-traditional {
+  --cides-bg: #f8f9fa;
+  --cides-card: #ffffff;
+  --cides-border: #d1d5db;
+  --cides-text: #111827;
+  --cides-subtext: #1f2937;
+  --cides-primary: #1a73e8;
+  --cides-header: #ffffff;
+}
+
+.theme-traditional body,
+.theme-traditional .app-root-container {
+  background-color: #f8f9fa !important;
+  color: #111827 !important;
+}
+
+.theme-traditional .cides-header-bg {
+  background-color: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.theme-traditional .cides-nav-button-inactive {
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+  border-color: #d1d5db !important;
+}
+
+.theme-traditional .cides-nav-button-inactive:hover {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+.theme-traditional .cides-card-surface {
+  background-color: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-traditional .cides-subcard-surface {
+  background-color: #f9fafb !important;
+  border-color: #e5e7eb !important;
+  color: #111827 !important;
+}
+
+/* =========================================================
+   字体颜色：全面使用深色系（黑、深蓝、深红等），杜绝浅色/淡灰字体
+   ========================================================= */
+.theme-traditional .text-slate-100,
+.theme-traditional .text-slate-200 {
+  color: #111827 !important; /* 主标题/主内容：纯正深黑 */
+}
+
+.theme-traditional .text-slate-300,
+.theme-traditional .text-slate-400 {
+  color: #1f2937 !important; /* 次级文本/说明：深炭黑，保证超高对比度 */
+}
+
+.theme-traditional .text-slate-500,
+.theme-traditional .text-slate-600 {
+  color: #374151 !important; /* 辅助信息：深灰黑，清晰易读 */
+}
+
+.theme-traditional .text-gray-400,
+.theme-traditional .text-gray-500 {
+  color: #1f2937 !important; /* 原浅灰字体统一升级为深色系 */
+}
+
+/* 强调文字色彩：纯正深色系 */
+.theme-traditional .text-amber-400,
+.theme-traditional .text-amber-300,
+.theme-traditional .text-amber-200,
+.theme-traditional .text-yellow-400,
+.theme-traditional .text-yellow-300 {
+  color: #92400e !important; /* 深琥珀金 */
+}
+
+.theme-traditional .text-blue-300,
+.theme-traditional .text-blue-400 {
+  color: #1d4ed8 !important; /* 纯正深蓝 */
+}
+
+.theme-traditional .text-purple-300,
+.theme-traditional .text-purple-400,
+.theme-traditional .text-purple-200 {
+  color: #6b21a8 !important; /* 深紫 */
+}
+
+.theme-traditional .text-emerald-300,
+.theme-traditional .text-emerald-400,
+.theme-traditional .text-emerald-200 {
+  color: #065f46 !important; /* 深林绿 */
+}
+
+.theme-traditional .text-rose-300,
+.theme-traditional .text-rose-400,
+.theme-traditional .text-red-300,
+.theme-traditional .text-red-400 {
+  color: #b91c1c !important; /* 深红 */
+}
+
+/* =========================================================
+   界面底色：消除残留的黑灰底色，统一调整为干净明朗浅色底
+   ========================================================= */
+.theme-traditional .border-slate-800,
+.theme-traditional .border-slate-700,
+.theme-traditional .border-slate-600 {
+  border-color: #d1d5db !important;
+}
+
+/* 卡片与容器表面：白底 */
+.theme-traditional [class*="bg-slate-950"]:not([class*="bg-slate-950/"]):not(.fixed),
+.theme-traditional [class*="bg-slate-900"]:not(.fixed) {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
+}
+
+/* 内部二级卡片与背景块：干净淡灰底 */
+.theme-traditional [class*="bg-slate-800"],
+.theme-traditional [class*="bg-slate-850"] {
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+  border-color: #e5e7eb !important;
+}
+
+/* 按钮统一色系：日光版使用清晰的淡底深字或品牌蓝 */
+.theme-traditional button[class*="bg-slate-8"],
+.theme-traditional button[class*="bg-slate-7"],
+.theme-traditional button[class*="bg-slate-9"] {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
+}
+
+.theme-traditional button[class*="bg-slate-8"]:hover,
+.theme-traditional button[class*="bg-slate-7"]:hover,
+.theme-traditional button[class*="bg-slate-9"]:hover {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+/* 输入框与选择框 */
+.theme-traditional input[class*="bg-slate-"],
+.theme-traditional textarea[class*="bg-slate-"],
+.theme-traditional select[class*="bg-slate-"] {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
+}
+
+.theme-traditional input::placeholder,
+.theme-traditional textarea::placeholder {
+  color: #4b5563 !important;
+}
+
+/* 状态色块微调为浅色背景+深色字体，杜绝深黑背景遮挡 */
+.theme-traditional [class*="bg-emerald-950"] {
+  background-color: #ecfdf5 !important;
+  color: #065f46 !important;
+  border-color: #a7f3d0 !important;
+}
+
+.theme-traditional [class*="bg-purple-950"] {
+  background-color: #faf5ff !important;
+  color: #581c87 !important;
+  border-color: #e9d5ff !important;
+}
+
+.theme-traditional [class*="bg-amber-950"] {
+  background-color: #fffbeb !important;
+  color: #78350f !important;
+  border-color: #fde68a !important;
+}
+
+.theme-traditional [class*="bg-blue-950"] {
+  background-color: #eff6ff !important;
+  color: #1e40af !important;
+  border-color: #bfdbfe !important;
+}
+
+.theme-traditional [class*="bg-rose-950"],
+.theme-traditional [class*="bg-red-950"] {
+  background-color: #fef2f2 !important;
+  color: #991b1b !important;
+  border-color: #fecaca !important;
+}
+
+/* 弹窗遮罩与弹窗卡片 */
+.theme-traditional .fixed.inset-0[class*="bg-slate-950/"] {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+}
+
+.theme-traditional [role="dialog"],
+.theme-traditional [class*="max-w-"][class*="rounded-2xl"],
+.theme-traditional [class*="max-w-"][class*="rounded-xl"] {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+}
+

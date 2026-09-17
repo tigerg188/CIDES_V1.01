@@ -12,13 +12,18 @@ import {
   Compass,
   BookmarkPlus,
   RefreshCw,
+  Trash2,
+  RotateCcw,
 } from "lucide-react";
 import {
   ProjectThread,
   IntentRecognitionResult,
   ResearchBaseline,
 } from "../types/cides";
-import { SAMPLE_INVESTMENT_PRESETS, InvestmentPreset } from "../data/samplePresets";
+import { InvestmentPreset } from "../data/samplePresets";
+import { getActivePresets, deletePresetById, restoreAllPresets } from "../utils/storage";
+import { useTheme } from "../context/ThemeContext";
+import { ConfirmModal } from "./ConfirmModal";
 
 interface IntentWorkspaceProps {
   thread: ProjectThread;
@@ -31,6 +36,7 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
   onThreadUpdate,
   onProceedToNodes,
 }) => {
+  const { isTraditional } = useTheme();
   const [rawText, setRawText] = useState(thread.rawInput || "");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
@@ -38,6 +44,34 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
   const [userCorrectionText, setUserCorrectionText] = useState("");
   const [errorInfo, setErrorInfo] = useState<{ status: string; code: string; message: string } | null>(null);
   const [cooldownSeconds, setCooldownSeconds] = useState(0);
+  const [presets, setPresets] = useState<InvestmentPreset[]>(() => getActivePresets());
+  const [confirmPresetDelete, setConfirmPresetDelete] = useState<{
+    isOpen: boolean;
+    presetId: string;
+    presetName: string;
+  } | null>(null);
+
+  const refreshPresets = () => {
+    setPresets(getActivePresets());
+  };
+
+  const handleDeletePreset = (e: React.MouseEvent, presetId: string, name: string) => {
+    e.stopPropagation();
+    setConfirmPresetDelete({
+      isOpen: true,
+      presetId,
+      presetName: name,
+    });
+  };
+
+  const handleRestorePresets = () => {
+    restoreAllPresets();
+    refreshPresets();
+  };
+
+  useEffect(() => {
+    refreshPresets();
+  }, []);
 
   useEffect(() => {
     if (errorInfo?.code === "AI_QUOTA_EXHAUSTED") {
@@ -210,25 +244,39 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner & Philosophy */}
-      <div className="p-5 rounded-2xl bg-gradient-to-r from-slate-800/80 via-slate-800/40 to-slate-900 border border-slate-700/80 shadow-md">
+      <div
+        className={`p-5 rounded-2xl border shadow-sm ${
+          isTraditional
+            ? "bg-white border-gray-300 text-gray-900"
+            : "bg-gradient-to-r from-slate-800/80 via-slate-800/40 to-slate-900 border-slate-700/80 shadow-md text-slate-100"
+        }`}
+      >
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <Compass className="w-5 h-5 text-amber-400" />
-              <h2 className="text-lg font-bold text-slate-100">
+              <Compass className={`w-5 h-5 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
+              <h2 className={`text-lg font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>
                 第一起点：用户的原始投资意图识别与基线确立
               </h2>
             </div>
-            <p className="text-xs text-slate-400 max-w-3xl leading-relaxed">
+            <p className={`text-xs max-w-3xl leading-relaxed font-medium ${isTraditional ? "text-gray-800" : "text-slate-300"}`}>
               根据《CIDES自然语言运行定义 V1.0》第三节与第四节：CIDES不是单纯问答聊天机器人，而是从用户的原始输入中精准识别12个核心维度，形成初始识别结果；且
-              <strong className="text-amber-300 font-medium">必须允许用户人工确认和纠偏</strong>
+              <strong className={`font-bold mx-1 ${isTraditional ? "text-blue-700 underline decoration-blue-300" : "text-amber-300 font-medium"}`}>
+                必须允许用户人工确认和纠偏
+              </strong>
               ，升级为正式研究基线后方可驱动主线推进。
             </p>
           </div>
 
           {thread.isIntentConfirmed && (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-700/60 text-emerald-300 text-xs font-medium shrink-0">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <div
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-bold shrink-0 ${
+                isTraditional
+                  ? "bg-emerald-100 border-emerald-300 text-emerald-950"
+                  : "bg-emerald-950/60 border-emerald-700/60 text-emerald-300"
+              }`}
+            >
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>正式研究基线已锁定</span>
             </div>
           )}
@@ -238,43 +286,118 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
       {/* Preset Quick Selectors */}
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold text-slate-300 tracking-wider uppercase flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            快速载入典型跨境投资意图案例
+          <span
+            className={`text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 ${
+              isTraditional ? "text-gray-900" : "text-slate-300"
+            }`}
+          >
+            <Sparkles className={`w-3.5 h-3.5 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
+            快速载入典型跨境投资意图案例 ({presets.length})
           </span>
-          <span className="text-xs text-slate-500">点击自动填充文本框进行识别检验</span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {SAMPLE_INVESTMENT_PRESETS.map((p) => (
+          <div className="flex items-center gap-2 text-xs">
+            <span className={`hidden sm:inline font-medium ${isTraditional ? "text-gray-800" : "text-slate-400"}`}>
+              点击卡片自动填充文本框进行识别研判
+            </span>
             <button
-              key={p.id}
-              onClick={() => handleSelectPreset(p)}
-              className="text-left p-3.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/70 hover:border-amber-500/40 transition-all group"
+              onClick={handleRestorePresets}
+              title="恢复所有被删除或隐藏的官方预设案例"
+              className={`px-2.5 py-1 rounded-lg border text-[11px] font-semibold flex items-center gap-1 transition-colors ${
+                isTraditional
+                  ? "border-gray-300 bg-white hover:bg-gray-100 text-gray-900"
+                  : "border-slate-700 hover:border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-300"
+              }`}
             >
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-xs font-semibold text-slate-200 group-hover:text-amber-300 transition-colors line-clamp-1">
-                  {p.name}
-                </span>
-              </div>
-              <span className="inline-block px-1.5 py-0.5 rounded text-[10px] bg-slate-900/80 text-amber-400 font-mono mb-1.5 border border-slate-700/50">
-                {p.tag}
-              </span>
-              <p className="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
-                {p.description}
-              </p>
+              <RotateCcw className={`w-3 h-3 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
+              <span>恢复预设</span>
             </button>
-          ))}
+          </div>
         </div>
+        {presets.length === 0 ? (
+          <div
+            className={`p-4 rounded-xl border border-dashed text-center text-xs font-semibold ${
+              isTraditional
+                ? "border-gray-300 text-gray-700 bg-gray-50"
+                : "border-slate-700 text-slate-400"
+            }`}
+          >
+            已清空全部预设案例。如需恢复请点击上方“恢复预设”。
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {presets.map((p) => (
+              <div
+                key={p.id}
+                onClick={() => handleSelectPreset(p)}
+                className={`relative text-left p-3.5 rounded-xl border transition-all group cursor-pointer flex flex-col justify-between ${
+                  isTraditional
+                    ? "bg-white hover:bg-gray-50 border-gray-300 hover:border-blue-600 shadow-xs"
+                    : "bg-slate-800/60 hover:bg-slate-800 border-slate-700/70 hover:border-amber-500/40"
+                }`}
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-1.5 mb-1">
+                    <span
+                      className={`text-xs font-bold transition-colors line-clamp-1 ${
+                        isTraditional
+                          ? "text-gray-900 group-hover:text-blue-700"
+                          : "text-slate-200 group-hover:text-amber-300"
+                      }`}
+                    >
+                      {p.name}
+                    </span>
+                    <button
+                      onClick={(e) => handleDeletePreset(e, p.id, p.name)}
+                      title="删除此预设案例"
+                      className="p-1 rounded text-red-600 hover:text-white hover:bg-red-600 transition-colors border border-transparent hover:border-red-600 shrink-0"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                  <span
+                    className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-bold mb-1.5 border ${
+                      isTraditional
+                        ? "bg-blue-50 text-blue-900 border-blue-200"
+                        : "bg-slate-900/80 text-amber-400 border-slate-700/50"
+                    }`}
+                  >
+                    {p.tag}
+                  </span>
+                  <p
+                    className={`text-[11px] line-clamp-2 leading-relaxed font-medium ${
+                      isTraditional ? "text-gray-800" : "text-slate-300"
+                    }`}
+                  >
+                    {p.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Natural Language Input Box */}
-      <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/80 space-y-4">
+      <div
+        className={`p-5 rounded-2xl border space-y-4 ${
+          isTraditional
+            ? "bg-white border-gray-300 shadow-xs"
+            : "bg-slate-800/40 border-slate-700/80"
+        }`}
+      >
         <div className="flex items-center justify-between">
-          <label className="text-sm font-semibold text-slate-200 flex items-center gap-2">
-            <Edit3 className="w-4 h-4 text-amber-400" />
+          <label
+            className={`text-sm font-bold flex items-center gap-2 ${
+              isTraditional ? "text-gray-900" : "text-slate-200"
+            }`}
+          >
+            <Edit3 className={`w-4 h-4 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
             输入用户的原始自然语言投资设想 / 商业计划 / 零散想法
           </label>
-          <span className="text-xs text-slate-400">
+          <span
+            className={`text-xs font-semibold ${
+              isTraditional ? "text-gray-700" : "text-slate-400"
+            }`}
+          >
             支持一段话、零散要求或商业计划书摘录
           </span>
         </div>
@@ -284,7 +407,11 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
           value={rawText}
           onChange={(e) => setRawText(e.target.value)}
           placeholder="例如：我们是一家中资企业，拟在非洲赞比亚铜带省投资并购一座铜矿，并扩建年产3.5万吨电积铜冶炼选厂，资金来源为企业自有资本金与跨境银行贷款。希望搞清楚真实供电电价与限电风险、矿业特许权使用费阶梯计算、外汇管制与离岸交易架构..."
-          className="w-full h-36 p-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-sm focus:outline-none focus:border-amber-500 transition-colors resize-none placeholder:text-slate-600 leading-relaxed font-sans"
+          className={`w-full h-36 p-3.5 rounded-xl border text-sm font-medium transition-colors resize-none leading-relaxed font-sans focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            isTraditional
+              ? "bg-white border-gray-300 text-gray-900 placeholder:text-gray-500"
+              : "bg-slate-900 border-slate-700 text-slate-200 placeholder:text-slate-600 focus:border-amber-500"
+          }`}
         />
 
         {/* Live Real AI Execution Bar */}
@@ -604,35 +731,79 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
 
       {/* Confirmation & Correction Dialog (Section 4) */}
       {showConfirmModal && intent && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl overflow-y-auto max-h-[90vh]">
-            <div className="flex items-start justify-between border-b border-slate-800 pb-3">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+          <div
+            className={`border rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl overflow-y-auto max-h-[90vh] transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xl"
+                : "bg-slate-900 border-slate-700 text-slate-100 shadow-black/60"
+            }`}
+          >
+            <div
+              className={`flex items-start justify-between border-b pb-3 ${
+                isTraditional ? "border-gray-200" : "border-slate-800"
+              }`}
+            >
               <div>
-                <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
-                  <FileCheck className="w-5 h-5 text-amber-400" />
+                <h3
+                  className={`text-base font-bold flex items-center gap-2 ${
+                    isTraditional ? "text-gray-900" : "text-slate-100"
+                  }`}
+                >
+                  <FileCheck className={`w-5 h-5 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
                   投资意图识别结果人工确认与纠偏 (CIDES 第四节硬规则)
                 </h3>
-                <p className="text-xs text-slate-400 mt-0.5">
+                <p
+                  className={`text-xs mt-0.5 font-medium ${
+                    isTraditional ? "text-gray-800" : "text-slate-400"
+                  }`}
+                >
                   只有您确认或纠偏以后，系统才能把该结果升级为【正式研究基线】。
                 </p>
               </div>
             </div>
 
             {/* AI's Proposed Baseline Understanding */}
-            <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700 space-y-2">
-              <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
+            <div
+              className={`p-4 rounded-xl border space-y-2 ${
+                isTraditional
+                  ? "bg-gray-50 border-gray-300 text-gray-900"
+                  : "bg-slate-800/80 border-slate-700 text-slate-200"
+              }`}
+            >
+              <span
+                className={`text-xs font-bold uppercase tracking-wider ${
+                  isTraditional ? "text-blue-700" : "text-amber-400"
+                }`}
+              >
                 AI 对您投资意图的基线理解综述：
               </span>
-              <p className="text-xs text-slate-200 leading-relaxed font-mono">
+              <p
+                className={`text-xs leading-relaxed font-mono ${
+                  isTraditional ? "text-gray-900" : "text-slate-200"
+                }`}
+              >
                 {intent.structuredBaselineSummary ||
                   `根据您的描述，系统理解您的核心目标包括：① 判断${intent.region}关于${intent.target}的外资准入与政策可进入性；② 验证关键要素供给（如电力电价、土地、水资源）；③ 核算特许权与财税敏感性；④ 规划投资交易结构与交割路径。`}
               </p>
 
-              <div className="pt-2 border-t border-slate-700/60">
-                <span className="text-[11px] text-slate-400 font-semibold block mb-1">
+              <div
+                className={`pt-2 border-t ${
+                  isTraditional ? "border-gray-300" : "border-slate-700/60"
+                }`}
+              >
+                <span
+                  className={`text-[11px] font-bold block mb-1 ${
+                    isTraditional ? "text-gray-800" : "text-slate-400"
+                  }`}
+                >
                   建议研究推进目标主线：
                 </span>
-                <ul className="text-xs text-slate-300 space-y-1 list-decimal list-inside">
+                <ul
+                  className={`text-xs space-y-1 list-decimal list-inside font-medium ${
+                    isTraditional ? "text-gray-900" : "text-slate-300"
+                  }`}
+                >
                   {intent.proposedResearchObjectives?.map((obj, i) => (
                     <li key={i}>{obj}</li>
                   ))}
@@ -642,15 +813,29 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
 
             {/* Correction / Addition input */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-slate-200 flex items-center justify-between">
+              <label
+                className={`text-xs font-bold flex items-center justify-between ${
+                  isTraditional ? "text-gray-900" : "text-slate-200"
+                }`}
+              >
                 <span>请指出需要纠偏、增加或删除的内容（可选）：</span>
-                <span className="text-slate-400 font-normal">若理解准确可留空直接确认</span>
+                <span
+                  className={`font-normal ${
+                    isTraditional ? "text-gray-700" : "text-slate-400"
+                  }`}
+                >
+                  若理解准确可留空直接确认
+                </span>
               </label>
               <textarea
                 value={userCorrectionText}
                 onChange={(e) => setUserCorrectionText(e.target.value)}
                 placeholder="例如：第2项不准确，我们不仅是并购，还包括自备光伏电站投资；此外，需特别增加关于当地国家矿业投资公司(ZCCM-IH)非稀释股权谈判的针对性核查..."
-                className="w-full h-24 p-3 rounded-xl bg-slate-950 border border-slate-700 text-slate-200 text-xs focus:outline-none focus:border-amber-500 resize-none placeholder:text-slate-600"
+                className={`w-full h-24 p-3 rounded-xl border text-xs focus:outline-none transition-colors resize-none font-medium ${
+                  isTraditional
+                    ? "bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                    : "bg-slate-950 border-slate-700 text-slate-200 placeholder:text-slate-600 focus:border-amber-500"
+                }`}
               />
             </div>
 
@@ -658,21 +843,46 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
             <div className="flex items-center justify-end gap-3 pt-2">
               <button
                 onClick={() => setShowConfirmModal(false)}
-                className="px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 bg-slate-800 hover:bg-slate-700 transition-colors"
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors ${
+                  isTraditional
+                    ? "text-gray-800 bg-gray-100 hover:bg-gray-200 border border-gray-300"
+                    : "text-slate-400 hover:text-slate-200 bg-slate-800 hover:bg-slate-700"
+                }`}
               >
                 取消暂不确认
               </button>
               <button
                 id="btn-confirm-baseline-submit"
                 onClick={handleConfirmBaseline}
-                className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-yellow-400 hover:brightness-105 active:brightness-95 transition-all shadow-md shadow-amber-500/20 flex items-center gap-1.5"
+                className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 ${
+                  isTraditional
+                    ? "text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 shadow-blue-600/20"
+                    : "text-slate-950 bg-gradient-to-r from-amber-400 to-yellow-400 hover:brightness-105 active:brightness-95 shadow-amber-500/20"
+                }`}
               >
-                <CheckCircle2 className="w-4 h-4 text-slate-950" />
+                <CheckCircle2 className={`w-4 h-4 ${isTraditional ? "text-white" : "text-slate-950"}`} />
                 <span>确认并升级为【正式研究基线】</span>
               </button>
             </div>
           </div>
         </div>
+      )}
+
+      {/* Custom Confirm Modal for Preset Deletion */}
+      {confirmPresetDelete && (
+        <ConfirmModal
+          isOpen={confirmPresetDelete.isOpen}
+          title="移除预设案例"
+          message={`确定要移除官方预设案例【${confirmPresetDelete.presetName}】吗？若需找回，可随时在列表上方点击“恢复预设”。`}
+          confirmText="确认删除"
+          variant="danger"
+          onConfirm={() => {
+            deletePresetById(confirmPresetDelete.presetId);
+            refreshPresets();
+            setConfirmPresetDelete(null);
+          }}
+          onCancel={() => setConfirmPresetDelete(null)}
+        />
       )}
     </div>
   );

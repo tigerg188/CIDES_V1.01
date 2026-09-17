@@ -18,6 +18,8 @@ import {
   Check,
   RotateCcw,
   Sparkles,
+  Download,
+  PlusCircle,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import {
@@ -29,6 +31,7 @@ import {
   BranchItem,
   ProjectThread,
 } from "../types/cides";
+import { exportCurrentNodeMarkdown } from "../utils/exportReports";
 
 interface NodeResearchViewProps {
   node: ResearchNodeDefinition;
@@ -55,11 +58,15 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
   const [correctionInput, setCorrectionInput] = useState("");
   const [showCorrectionDialog, setShowCorrectionDialog] = useState(false);
   const [errorInfo, setErrorInfo] = useState<{ status: string; code: string; message: string } | null>(null);
+  const [selectedVersionIndex, setSelectedVersionIndex] = useState<number | null>(null);
 
   // Get current results list for this node
   const resultsList = thread.phaseResults[node.id] || [];
-  // Latest result
-  const currentResult: PhaseResult | undefined = resultsList[resultsList.length - 1];
+  // Selected or latest result
+  const currentResult: PhaseResult | undefined =
+    selectedVersionIndex !== null && resultsList[selectedVersionIndex]
+      ? resultsList[selectedVersionIndex]
+      : resultsList[resultsList.length - 1];
 
   const isConfirmed = currentResult?.status === "confirmed";
 
@@ -308,6 +315,17 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2.5 shrink-0">
+            {currentResult && (
+              <button
+                onClick={() => exportCurrentNodeMarkdown(node, resultsList, thread.title)}
+                className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center gap-1.5 transition-colors"
+                title="导出当前节点研判成果为 Markdown 文件"
+              >
+                <Download className="w-3.5 h-3.5 text-blue-400" />
+                <span className="hidden sm:inline">导出节点MD</span>
+              </button>
+            )}
+
             <button
               onClick={onOpenPromptManager}
               className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center gap-1.5 transition-colors"
@@ -425,6 +443,35 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
       {/* Main Content Area */}
       {currentResult ? (
         <div className="space-y-4">
+          {/* Version Selector if multiple versions exist (Requirements 12 & 13) */}
+          {resultsList.length > 1 && (
+            <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs">
+              <span className="text-slate-400 text-[11px] font-mono shrink-0 pl-1">成果版本历史:</span>
+              <div className="flex items-center gap-2 overflow-x-auto">
+                {resultsList.map((res, idx) => {
+                  const isSelected = currentResult.id === res.id;
+                  return (
+                    <button
+                      key={res.id}
+                      onClick={() => setSelectedVersionIndex(idx)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 shrink-0 ${
+                        isSelected
+                          ? "bg-amber-400 text-slate-950 font-bold shadow-sm shadow-amber-400/20"
+                          : "bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700"
+                      }`}
+                    >
+                      <span>V{res.version}</span>
+                      <span className="text-[10px]">
+                        {res.reasoningRevision ? "(分支重新推理)" : idx === 0 ? "(初版)" : "(纠偏版)"}
+                      </span>
+                      {res.status === "confirmed" && <Check className="w-3 h-3 text-emerald-600" />}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Version Header & Tab Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
@@ -585,6 +632,33 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
           {/* TAB 1: Detailed Findings */}
           {activeTab === "findings" && (
             <div className="space-y-4">
+              {/* Reasoning Revision Card (Mainline Re-reasoning from Branch findings) */}
+              {currentResult.reasoningRevision && (
+                <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-500/50 space-y-2 shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-purple-800/60 pb-2">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-purple-400" />
+                      <span className="text-xs font-bold text-purple-200">
+                        【分支核验带回】主线重新推理论证修正轨迹说明 (Reasoning Revision)
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-[10px] font-mono">
+                      {currentResult.triggeredByBranchId && (
+                        <span className="px-2 py-0.5 rounded bg-purple-900/80 text-purple-300 border border-purple-700">
+                          来源分支: {currentResult.triggeredByBranchId}
+                        </span>
+                      )}
+                      <span className="px-2 py-0.5 rounded bg-slate-900 text-amber-300 border border-amber-500/30">
+                        版本演进: V{currentResult.version - 1} ➔ V{currentResult.version}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-xs text-purple-100/95 leading-relaxed pl-4 border-l-2 border-purple-400/80 my-1 whitespace-pre-wrap">
+                    {currentResult.reasoningRevision}
+                  </div>
+                </div>
+              )}
+
               {/* Executive Summary Card */}
               <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1.5">
                 <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">
@@ -766,51 +840,136 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
           {/* TAB 4: Proposed Branches */}
           {activeTab === "branches" && (
             <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-800/40 text-xs text-purple-200">
-                系统在分析过程中识别出以下不确定性、证据冲突或重大风险点，提议生成分支专项核实。分支研究成果将带回主线并修正主线判断。
+              <div className="p-4 rounded-xl bg-purple-950/30 border border-purple-800/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <div className="space-y-1">
+                  <span className="font-bold text-purple-200 block">
+                    动态分支管理与实证核验中心 (Branch Management & Verification)
+                  </span>
+                  <p className="text-purple-300/80 text-[11px]">
+                    系统在分析过程中识别出重大不确定性、证据冲突或风险敞口时提议生成分支。分支研究成果带回主线后，将触发主线重新推理并生成新版本！
+                  </p>
+                </div>
+
+                <button
+                  id="btn-create-test-branch"
+                  onClick={() => {
+                    const testBranch: BranchItem = {
+                      id: `branch-test-${node.id.toLowerCase()}-${Date.now()}`,
+                      parentNodeId: node.id,
+                      parentNodeName: node.name,
+                      title: `【实证核验】${node.name}专项外部政策与关键法律文书核实 (Workflow Test)`,
+                      triggerType: "evidence_conflict",
+                      triggerReason: "主线初版分析基于一般假设，需专项核查当地最新官方公报、特别经济区企业税率优惠是否仍有效，验证是否需修正主线判断。",
+                      objective: "通过东道国财政部/投资局真实官方文告核验法规有效性，为原主线判断提供确凿法律与数据凭据。",
+                      scope: "东道国最新公报、特别经济区法案细则、双边投资协定适用条款。",
+                      prompt: `你正在对主线节点【${node.name}】进行【专项实证核实分支研究】。请深入核实外部公报文凭与法律事实，查明当地法规政策是否有调整或限制，明确判定原主线初版判断中的哪些假设被推翻或需修正。`,
+                      impactOnMainline: "核验成果将带回主线触发重新推理，更新主线财务模型参数与重大风险定级。",
+                      status: "pending",
+                      createdAt: new Date().toISOString(),
+                    };
+
+                    const updatedThread: ProjectThread = {
+                      ...thread,
+                      activeBranches: [
+                        ...thread.activeBranches.filter((b) => b.id !== testBranch.id),
+                        testBranch,
+                      ],
+                      executionLogs: [
+                        ...thread.executionLogs,
+                        {
+                          id: "log-" + Date.now(),
+                          timestamp: new Date().toISOString(),
+                          nodeId: node.id,
+                          nodeName: node.name,
+                          promptVersionUsed: node.activePromptVersion,
+                          type: "branch_opened",
+                          message: `用户开启流程验证模式，为【${node.name}】创建测试专项深挖分支：【${testBranch.title}】。`,
+                        },
+                      ],
+                    };
+                    onThreadUpdate(updatedThread);
+                    onOpenBranch(testBranch);
+                  }}
+                  className="px-3.5 py-2 rounded-xl text-xs font-bold text-purple-200 bg-purple-900/60 hover:bg-purple-800/70 border border-purple-700/80 flex items-center gap-1.5 shrink-0 transition-all shadow-sm"
+                  title="用于在任意节点手动创建分支，验证完整的 Mainline -> Branch -> Merge -> Re-reasoning 闭环"
+                >
+                  <PlusCircle className="w-4 h-4 text-purple-300" />
+                  <span>创建流程验证分支 (Workflow Test)</span>
+                </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                {currentResult.proposedBranches?.map((branch) => {
-                  const isMerged = thread.activeBranches.some(
-                    (b) => b.id === branch.id && b.status === "merged_to_mainline"
-                  );
-                  return (
-                    <div
-                      key={branch.id}
-                      className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between gap-3 text-xs"
-                    >
-                      <div className="space-y-1.5">
-                        <div className="flex items-center justify-between">
-                          <span className="font-bold text-slate-100">{branch.title}</span>
-                          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-purple-900/40 text-purple-300">
-                            {branch.triggerType}
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400">
-                          <strong>触发原因：</strong>{branch.triggerReason}
-                        </p>
-                        <p className="text-[11px] text-slate-400">
-                          <strong>预期影响：</strong>{branch.impactOnMainline}
-                        </p>
-                      </div>
+              {/* Combined branches list */}
+              {(() => {
+                const combinedMap = new Map<string, BranchItem>();
+                (currentResult.proposedBranches || []).forEach((b) => combinedMap.set(b.id, b));
+                (thread.activeBranches || [])
+                  .filter((b) => b.parentNodeId === node.id)
+                  .forEach((b) => combinedMap.set(b.id, b));
 
-                      <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between">
-                        <span className="text-[10px] font-mono text-slate-500">
-                          {isMerged ? "已带回主线" : "待执行深挖"}
-                        </span>
-                        <button
-                          onClick={() => onOpenBranch(branch)}
-                          className="px-3 py-1.5 rounded-lg text-xs font-medium text-purple-300 bg-purple-950/50 hover:bg-purple-900/60 border border-purple-800/60 flex items-center gap-1.5 transition-colors"
-                        >
-                          <GitBranch className="w-3.5 h-3.5" />
-                          <span>{isMerged ? "查看分支成果" : "启动分支深挖"}</span>
-                        </button>
-                      </div>
+                const allBranches = Array.from(combinedMap.values());
+
+                if (allBranches.length === 0) {
+                  return (
+                    <div className="p-8 text-center rounded-2xl bg-slate-900 border border-slate-800 text-slate-400 space-y-2 text-xs">
+                      <p>当前节点暂无系统自动提议分支。您可以点击上方【创建流程验证分支 (Workflow Test)】启动分支核验机制测试。</p>
                     </div>
                   );
-                })}
-              </div>
+                }
+
+                return (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    {allBranches.map((branch) => {
+                      const activeItem = thread.activeBranches.find((b) => b.id === branch.id);
+                      const isMerged = activeItem?.status === "merged_to_mainline";
+                      const isExecuting = activeItem?.status === "in_progress";
+
+                      return (
+                        <div
+                          key={branch.id}
+                          className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between gap-3 text-xs"
+                        >
+                          <div className="space-y-1.5">
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="font-bold text-slate-100">{branch.title}</span>
+                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-purple-900/40 text-purple-300 shrink-0">
+                                {branch.triggerType}
+                              </span>
+                            </div>
+                            <p className="text-[11px] text-slate-400">
+                              <strong>触发原因：</strong>{branch.triggerReason}
+                            </p>
+                            <p className="text-[11px] text-slate-400">
+                              <strong>预期影响：</strong>{branch.impactOnMainline}
+                            </p>
+                          </div>
+
+                          <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+                            <span className="text-[10px] font-mono">
+                              {isMerged ? (
+                                <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                                  <Check className="w-3 h-3" />
+                                  已带回主线重新推理
+                                </span>
+                              ) : isExecuting ? (
+                                <span className="text-amber-400 font-semibold">深挖中...</span>
+                              ) : (
+                                <span className="text-slate-500">待执行深挖</span>
+                              )}
+                            </span>
+                            <button
+                              onClick={() => onOpenBranch(activeItem || branch)}
+                              className="px-3 py-1.5 rounded-lg text-xs font-medium text-purple-300 bg-purple-950/50 hover:bg-purple-900/60 border border-purple-800/60 flex items-center gap-1.5 transition-colors"
+                            >
+                              <GitBranch className="w-3.5 h-3.5" />
+                              <span>{isMerged ? "查看分支与带回记录" : "进入分支核验"}</span>
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </div>
           )}
 

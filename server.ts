@@ -879,6 +879,230 @@ ${JSON.stringify(projectBaseline || {}, null, 2)}
   }
 });
 
+// Endpoint 4: Mainline Re-reasoning after Branch Completion (CIDES V1.02 Requirements 7, 8, 9)
+app.post("/api/cides/re-evaluate-node", async (req, res) => {
+  const startTime = Date.now();
+  const {
+    nodeId,
+    nodeName,
+    projectBaseline,
+    originalResult,
+    branchResult,
+    userConfirmation,
+  } = req.body;
+
+  const ai = getGeminiClient();
+  if (!ai) {
+    return res.status(503).json({
+      success: false,
+      status: "blocked",
+      code: "AI_NOT_CONFIGURED",
+      error: "AI 未配置：当前系统未检测到 GEMINI_API_KEY 环境变量，无法执行真实主线重新推理。请配置 API Key 后重试。",
+      nodeId,
+    });
+  }
+
+  try {
+    const prompt = `你正在执行 CIDES (跨境投资开发决策专家系统) V1.02 的【主线重新推理引擎】(Mainline Re-reasoning Engine)。
+【核心任务】
+主线研究节点【[${nodeId}] ${nodeName}】此前已完成初步研判并形成了阶段成果版本 V1。
+但在该节点研究过程中，AI 发现关键未知事实/重大外部约束/假设风险，提出了专项动态分支【${branchResult?.title || "专项深挖分支"}】并执行了针对性深挖实证研究。
+现在，该分支的专项调查已经完成，并经过了人类投资决策专家（Human Decision Desk）的实质性审核与批注。
+你必须严格执行【分支带回主线与重新推理 (Branch -> Mainline Re-reasoning)】机制：
+将【原节点结论】与【分支调查的最新实证结果及人类专家确认意见】进行深度融合，重新评估并修正该节点的结论。
+
+【严格执行原则】：
+1. 绝对不能简单把分支结论粘贴在后面，必须对原节点结论进行结构性重新评估。
+2. 必须明确阐明论证修改轨迹（写入 reasoningRevision 字段）：说明相较于原版本，哪些推断被证实、哪些数据被推翻、哪些风险被重新定级，原结论为何及如何被修正。
+3. 修正更新执行摘要（executiveSummary）与详细研判正文（detailedFindingsMarkdown）。
+4. 综合吸收原证据链与分支新确证证据（verifiedEvidences）。
+5. 更新重大风险清单（criticalRisks）与核心假设验证状态（assumptionsValidated）。
+6. 输出基于修正后结论的后续主线推进建议（nextRecommendedStep）。
+
+【项目立项基线 Baseline】:
+${JSON.stringify(projectBaseline || {}, null, 2)}
+
+【原主线节点成果 (Original Result)】:
+- 原执行摘要: ${originalResult?.executiveSummary || "无"}
+- 原详细研判核心要点: ${(originalResult?.detailedFindingsMarkdown || "").slice(0, 1500)}
+- 原重大风险: ${JSON.stringify(originalResult?.criticalRisks || [])}
+- 原假设状态: ${JSON.stringify(originalResult?.assumptionsValidated || [])}
+
+【完成核验的专项分支成果 (Branch Findings)】:
+- 分支标题: ${branchResult?.title || "专项核查"} (ID: ${branchResult?.branchId || branchResult?.id || "N/A"})
+- 触发原因: ${branchResult?.triggerReason || "实证深挖"}
+- 分支深度调查结论: ${branchResult?.findingsMarkdown || branchResult?.result || "无"}
+- 分支关键证据: ${JSON.stringify(branchResult?.evidences || [])}
+- 建议主线调整类型: ${branchResult?.modificationType || "modify_judgment"}
+- 建议后续动作: ${branchResult?.recommendedAction || "更新论证"}
+
+【人类专家审核确认意见 (User Confirmation)】:
+- 专家确认意见: ${userConfirmation?.userNote || "专家已核准分支调查结论，同意带回主线重新推理"}
+- 确认时间: ${userConfirmation?.confirmedAt || new Date().toISOString()}
+
+请返回严格合法的单一 JSON 对象（禁止包裹外部文本或非 JSON 内容）：
+{
+  "reasoningRevision": "明确阐述：相较于上一版本，因分支实证调查核验及专家批注，主线论证发生了哪些实质性修正、补充或推翻...",
+  "executiveSummary": "重新推理后的更新版核心执行摘要",
+  "detailedFindingsMarkdown": "重新推理后的更新版详细研究论述（深度融合分支新事实与证据）",
+  "verifiedEvidences": [
+    {
+      "title": "证据标题",
+      "source": "来源",
+      "snippet": "内容摘要",
+      "url": "参考链接或文件",
+      "supportsFinding": true,
+      "reliability": "高 (官方公报/法律文书)"
+    }
+  ],
+  "criticalRisks": [
+    {
+      "category": "政策与地缘",
+      "severity": "高",
+      "description": "风险阐述",
+      "mitigation": "防范策略"
+    }
+  ],
+  "assumptionsValidated": [
+    {
+      "hypothesis": "假设命题",
+      "status": "validated",
+      "explanation": "核验说明"
+    }
+  ],
+  "nextRecommendedStep": "重新推理后建议下一步推进方向"
+}`;
+
+    const { response, usedModel, toolsSkipped } = await generateContentWithResilience(ai, {
+      primaryModel: "gemini-3.8-flash",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+        temperature: 0.2,
+        tools: [{ googleSearch: {} }],
+      },
+    });
+
+    const durationMs = Date.now() - startTime;
+    const responseText = response.text || "";
+    const parsed = extractJson(responseText);
+
+    const candidate = response.candidates?.[0];
+    const groundingMeta = candidate?.groundingMetadata;
+    const webSearchQueries: string[] = groundingMeta?.webSearchQueries || [];
+    const groundingChunks = groundingMeta?.groundingChunks || [];
+
+    const searchRequested = !toolsSkipped;
+    const searchExecuted = !toolsSkipped && (webSearchQueries.length > 0 || groundingChunks.length > 0);
+
+    const sources = groundingChunks
+      .filter((c: any) => c.web?.uri)
+      .map((c: any) => ({
+        title: c.web?.title || "核验数据源",
+        url: c.web?.uri,
+        snippet: c.web?.snippet || "",
+      }));
+
+    const usage = response.usageMetadata;
+    const executionId = `exec-rereason-${nodeId}-${Date.now()}`;
+    const parentExecutionId = originalResult?.executionRecord?.executionId || `exec-parent-${Date.now()}`;
+    const triggeredByBranchId = branchResult?.branchId || branchResult?.id || "BRANCH-TRIGGER";
+
+    const executionRecord = {
+      executionId,
+      nodeId,
+      nodeName: `主线重新推理: ${nodeName}`,
+      branchId: triggeredByBranchId,
+      parentExecutionId,
+      startedAt: new Date(startTime).toISOString(),
+      completedAt: new Date().toISOString(),
+      durationMs,
+      provider: "Google Gemini",
+      model: usedModel,
+      promptVersion: originalResult?.promptVersionUsed || "V1.0",
+      inputContextLength: prompt.length,
+      outputLength: responseText.length,
+      aiCalled: true,
+      searchRequested,
+      searchExecuted,
+      searchQueries: webSearchQueries,
+      sources,
+      status: "completed" as const,
+      error: null,
+      createdAt: new Date().toISOString(),
+      tokens: {
+        inputTokens: usage?.promptTokenCount,
+        outputTokens: usage?.candidatesTokenCount,
+        totalTokens: usage?.totalTokenCount,
+      },
+      executionSource: "gemini" as const,
+    };
+
+    return res.json({
+      success: true,
+      status: "completed",
+      data: {
+        ...parsed,
+        nodeId,
+        nodeName,
+        parentExecutionId,
+        triggeredByBranchId,
+        previousResultId: originalResult?.id,
+        generatedAt: new Date().toISOString(),
+      },
+      executionRecord,
+      source: "gemini",
+    });
+  } catch (error: any) {
+    const durationMs = Date.now() - startTime;
+    const isQuota = isQuotaError(error);
+    const isTransient = isTransientError(error);
+    const isParse =
+      error instanceof SyntaxError ||
+      error.message?.includes("JSON") ||
+      error.message?.includes("解析失败");
+
+    if (isQuota || isTransient || isParse) {
+      console.warn(
+        `[CIDES AI Notice] Re-evaluate node [${nodeId}] notice:`,
+        error.message || error
+      );
+    } else {
+      console.error(`Re-evaluate node [${nodeId}] error:`, error);
+    }
+
+    let status = 500;
+    let code = "AI_EXECUTION_FAILED";
+    let userMessage = `Gemini 主线重新推理【${nodeName}】执行失败: ${error.message || "未知异常"}`;
+
+    if (isQuota) {
+      status = 429;
+      code = "AI_QUOTA_EXHAUSTED";
+      userMessage =
+        `Google Gemini API 调用频率或额度已达上限 (429 RESOURCE_EXHAUSTED)。主线重新推理受限。请等待片刻后再试。`;
+    } else if (isTransient) {
+      status = 503;
+      code = "AI_HIGH_DEMAND";
+      userMessage =
+        `Google Gemini 模型服务当前正遭遇瞬时高并发流量（503 UNAVAILABLE）。主线重新推理已尝试自动退避重试。请稍候点击【重试】。`;
+    } else if (isParse) {
+      status = 422;
+      code = "AI_PARSE_FAILED";
+      userMessage = `AI 重新推理生成完成，但结构化结果解析失败: ${error.message}`;
+    }
+
+    return res.status(status).json({
+      success: false,
+      status: isQuota || isTransient ? "blocked" : "failed",
+      code,
+      error: userMessage,
+      rawError: error.message,
+      durationMs,
+      nodeId,
+    });
+  }
+});
+
 // Vite / static file middleware
 async function setupServer() {
   if (process.env.NODE_ENV !== "production") {

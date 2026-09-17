@@ -97,6 +97,7 @@ export type BranchTriggerType =
   | "important_unknown"
   | "must_external_confirm"
   | "source_conflict"
+  | "evidence_conflict"
   | "broken_user_premise"
   | "ai_uncertainty"
   | "major_risk"
@@ -112,36 +113,46 @@ export type BranchModificationType =
 
 export interface BranchItem {
   id: string;
+  branchId?: string; // Standard alias
   parentNodeId: string;
   parentNodeName?: string;
   triggerType: BranchTriggerType;
+  trigger?: string; // Natural language or code trigger
   title: string;
   triggerReason: string;
+  reason?: string; // Natural language reason alias
+  question?: string; // Specific targeted research question
   objective: string;
   scope: string;
   impactOnMainline: string;
   prompt: string;
-  status: "pending" | "researching" | "completed" | "merged_to_mainline";
+  status: "pending" | "researching" | "in_progress" | "completed" | "merged_to_mainline";
   findingsMarkdown?: string;
+  result?: string; // Findings markdown alias
   evidences?: EvidenceItem[];
   modificationType?: BranchModificationType;
   recommendedAction?: string;
   createdAt: string;
+  confirmedAt?: string;
   completedAt?: string;
   confirmedByHuman?: boolean;
+  userConfirmation?: UserConfirmationRecord;
+  executionRecord?: AIExecutionRecord;
 }
 
 export interface UserConfirmationRecord {
   type: "confirm" | "correct" | "supplement_requested";
   confirmedAt: string;
   userNote: string;
-  acceptedAsBaseline: boolean;
+  acceptedAsBaseline?: boolean;
 }
 
 export interface AIExecutionRecord {
   executionId: string;
   nodeId: string;
   nodeName: string;
+  branchId?: string;
+  parentExecutionId?: string;
   startedAt: string;
   completedAt: string;
   durationMs: number;
@@ -176,7 +187,7 @@ export interface PhaseResult {
   nodeId: string;
   nodeName: string;
   version: number; // 1 = V1, 2 = V2
-  versionLabel: string; // e.g. "阶段成果 V1"
+  versionLabel: string; // e.g. "阶段成果 V1", "阶段成果 V2 (分支核验后重新推理)"
   status: "candidate" | "confirmed" | "corrected" | "supplement_requested";
   promptVersionUsed: string; // Mandatory execution tracking (Section 10.6)
   generatedAt: string;
@@ -190,6 +201,11 @@ export interface PhaseResult {
   userConfirmationLog?: UserConfirmationRecord;
   executionRecord?: AIExecutionRecord;
   executionSource?: "gemini";
+  // V1.02 Mainline Re-reasoning tracking fields
+  reasoningRevision?: string;
+  parentExecutionId?: string;
+  triggeredByBranchId?: string;
+  previousResultId?: string;
 }
 
 export interface ExecutionLogItem {
@@ -197,8 +213,19 @@ export interface ExecutionLogItem {
   timestamp: string;
   nodeId: string;
   nodeName: string;
+  branchId?: string;
+  parentExecutionId?: string;
   promptVersionUsed: string;
-  type: "node_run" | "user_confirm" | "user_correct" | "branch_created" | "branch_merged" | "prompt_edited" | "prompt_restored";
+  type:
+    | "node_run"
+    | "node_rereason"
+    | "user_confirm"
+    | "user_correct"
+    | "branch_created"
+    | "branch_opened"
+    | "branch_merged"
+    | "prompt_edited"
+    | "prompt_restored";
   message: string;
   executionRecord?: AIExecutionRecord;
 }
