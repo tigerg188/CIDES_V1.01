@@ -1,0 +1,6 @@
+{
+  "name": "CIDES 跨境投资智能研究系统",
+  "description": "基于《CIDES自然语言运行定义 V1.0》的投资意图驱动跨境投资开发专家系统，具备意图识别、完整节点提示词版本管理、真实搜索验证、动态分支深挖、阶段成果人工确认与纠偏及研究线程记忆恢复。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
