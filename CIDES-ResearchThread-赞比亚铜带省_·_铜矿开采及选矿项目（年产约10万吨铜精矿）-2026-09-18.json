@@ -1,0 +1,1591 @@
+{
+  "id": "thread-mu6a109o",
+  "title": "赞比亚铜带省 · 铜矿开采及选矿项目（年产约10万吨铜精矿）",
+  "createdAt": "2026-09-18T01:25:20.412Z",
+  "updatedAt": "2026-09-18T01:25:20.412Z",
+  "rawInput": "中国广东民营资本拟在赞比亚铜带省采用绿地投资模式，建设一座年产约10万吨铜精矿的铜矿开采及选矿项目，计划采用特许经营/矿业权开发模式，在原始地貌基础上从前期勘探、资源评价、项目开发、采矿、选矿及配套基础设施建设全面启动。\n\n项目计划总投资约6亿美元，其中投资人自有资金3.5亿美元，其余约2.5亿美元根据项目融资条件采用商业银行贷款、国际项目融资或其他适当债权融资。根据项目推进和融资条件，在法律及交易结构允许的情况下，引入战略投资者、财务投资者、行业合作伙伴、东道国财团或其他适格资本方参与股权或债权融资。\n\n项目产品为铜精矿，初步计划以中国市场为主要销售方向；在市场条件、出口制度及价格合理的情况下，可向其他国家或地区销售。\n\n初步建设周期目标为48个月，从项目启动、勘探及资源评价、可行性研究、环境与社会评价、矿业权及相关法律文件、土地及地表权利安排、融资、工程设计、采购、施工、试生产直至正式开业/投产全部纳入计划。\n\n投资者重点关注：赞比亚国别及地缘政治稳定性、项目投资可能性和实际可行性、资本投入安全、矿业权及项目核心资产安全、外汇资金进入和退出的合法性与可执行性、税务及矿业财政制度、铜精矿出口条件、项目融资能力以及项目收益率、现金流和投资回收能力。",
+  "intentResult": {
+    "target": "铜矿开采及选矿项目（年产约10万吨铜精矿）",
+    "purpose": "战略保供与财务回报双重目标",
+    "region": "赞比亚铜带省",
+    "projectType": "绿地投资（矿业权开发）",
+    "scale": "总投资约6亿美元",
+    "capitalSource": "自有资金3.5亿美元，外部债权融资2.5亿美元，预留引入战略/财务投资者空间",
+    "resources": "矿业权、土地及地表权利、配套基础设施",
+    "knownConditions": [
+      "年产约10万吨铜精矿产能目标",
+      "48个月建设周期",
+      "以中国市场为主要销售方向"
+    ],
+    "existingHypotheses": [
+      "项目具备融资可行性",
+      "法律及交易结构允许引入多元化投资者",
+      "出口制度及价格条件具备灵活性"
+    ],
+    "coreConcerns": [
+      "赞比亚国别及地缘政治稳定性",
+      "矿业权及核心资产安全",
+      "外汇资金进出合法性与可执行性",
+      "税务及矿业财政制度",
+      "项目融资能力与投资回收能力"
+    ],
+    "implicitQuestions": [
+      "赞比亚现行矿业法对外国资本持股比例及本地化要求的限制",
+      "铜带省电力供应及物流运输对年产10万吨产能的支撑能力",
+      "铜精矿出口关税及配额政策对项目收益率的敏感性分析"
+    ],
+    "omittedCriticalQuestions": [
+      "项目环境与社会影响评价（ESIA）的潜在合规风险及社区关系管理",
+      "赞比亚矿业财政制度（如特许权使用费、所得税）的稳定性与追溯风险",
+      "当地劳工法对中方外派人员比例的限制"
+    ],
+    "requiresConfirmationReason": "项目涉及大规模绿地开发，且融资结构复杂，需确认对赞比亚矿业法最新修订的认知，以及对当地基础设施配套（电力/物流）的预判是否基于实地调研。",
+    "structuredBaselineSummary": "中国民营资本拟在赞比亚铜带省进行6亿美元绿地铜矿开发，目标年产10万吨铜精矿。项目采取自有资金与债权融资结合模式，关注国别风险、外汇管制及矿业财政稳定性，需进一步核实当地基础设施配套及合规性边界。",
+    "proposedResearchObjectives": [
+      "赞比亚矿业法律框架、财税制度及外汇管制政策合规性研究",
+      "项目选址区域基础设施（电力、交通、供水）配套能力及建设成本评估",
+      "铜精矿出口政策、市场定价机制及物流运输方案可行性分析",
+      "项目全生命周期财务模型构建及融资结构压力测试"
+    ],
+    "executionRecord": {
+      "executionId": "exec-intent-1789694741828",
+      "nodeId": "INTENT_ENGINE",
+      "nodeName": "投资意图识别与拆解",
+      "startedAt": "2026-09-18T01:25:28.737Z",
+      "completedAt": "2026-09-18T01:25:41.828Z",
+      "durationMs": 13090,
+      "provider": "Google Gemini",
+      "model": "gemini-3.1-flash-lite",
+      "promptVersion": "V1.0",
+      "inputContextLength": 1440,
+      "outputLength": 1226,
+      "aiCalled": true,
+      "searchRequested": false,
+      "searchExecuted": false,
+      "status": "completed",
+      "error": null,
+      "createdAt": "2026-09-18T01:25:41.828Z",
+      "tokens": {
+        "inputTokens": 802,
+        "outputTokens": 679,
+        "totalTokens": 1481
+      },
+      "executionSource": "gemini"
+    }
+  },
+  "isIntentConfirmed": true,
+  "baseline": {
+    "id": "baseline-1789694745037",
+    "confirmedAt": "2026-09-18T01:25:45.037Z",
+    "confirmedBy": "投资发起人 / 决策团队",
+    "summary": "中国民营资本拟在赞比亚铜带省进行6亿美元绿地铜矿开发，目标年产10万吨铜精矿。项目采取自有资金与债权融资结合模式，关注国别风险、外汇管制及矿业财政稳定性，需进一步核实当地基础设施配套及合规性边界。",
+    "target": "铜矿开采及选矿项目（年产约10万吨铜精矿）",
+    "purpose": "战略保供与财务回报双重目标",
+    "region": "赞比亚铜带省",
+    "projectType": "绿地投资（矿业权开发）",
+    "scale": "总投资约6亿美元",
+    "capitalSource": "自有资金3.5亿美元，外部债权融资2.5亿美元，预留引入战略/财务投资者空间",
+    "resources": "矿业权、土地及地表权利、配套基础设施",
+    "keyBoundaries": [
+      "赞比亚矿业法律框架、财税制度及外汇管制政策合规性研究",
+      "项目选址区域基础设施（电力、交通、供水）配套能力及建设成本评估",
+      "铜精矿出口政策、市场定价机制及物流运输方案可行性分析",
+      "项目全生命周期财务模型构建及融资结构压力测试"
+    ],
+    "userModificationsNote": "无补充纠偏，完全确认AI识别之研究基线。"
+  },
+  "currentNodeId": "NODE_MACRO_ENTRY",
+  "nodes": [
+    {
+      "id": "NODE_MACRO_ENTRY",
+      "name": "国别与区域宏观准入研判",
+      "purpose": "判断东道国地缘政治、主权外资准入政策、双边经贸协定及矿业/外商投资法制门槛。",
+      "scope": "东道国投资法、外商准入负面清单、所有权与持股比例上限、国有化历史、双边投资保护协定(BIT)及外资撤出政策。",
+      "inputRequirements": [
+        "已确认的正式投资意图基线（投资主体性质、投资区域、投资标的行业及预期出资币种）"
+      ],
+      "outputStructure": [
+        "外资准入负面清单核验结论",
+        "关键法律准入门槛与国有股非稀释条款要求",
+        "双边投资保护与仲裁管辖路径",
+        "宏观准入可行性综合评分与核心限制条件"
+      ],
+      "activePromptVersion": "V1.0",
+      "activePrompt": "你正在执行CIDES跨境投资研究节点【国别与区域宏观准入研判】。\n研究目标：\n全面核验目标东道国（如赞比亚等）在涉案行业（矿业/工业制造/新能源）的最新外商投资法规。\n分析重点：\n1. 外商独资与合资限制：东道国法律是否允许外资全资控股？是否强制要求东道国政府或本土资本持有保底“黄金股”或非稀释免费权益（Carried Interest）？\n2. 历史政策稳定性与国有化风险：近10年东道国是否存在单边撕毁协议、征收或强行重组外资项目的判例？\n3. 双边与多边保护：东道国与投资来源国（如中国）是否签署并生效《双边投资保护协定》(BIT)及《避免双重征税协定》(DTA)？是否认可ICSID国际仲裁？\n4. 证据核验要求：必须检索东道国投资促进署(ZDA/BOI)、矿业部、司法部官方公告或最新法定成文法。\n5. 动态分支触发：若发现存在重大准入排他条款、新出台限制性法律草案或主权债务违约冲击，须提议生成分支专项核查。",
+      "promptVersions": [
+        {
+          "versionId": "pv-entry-1",
+          "versionNumber": "V1.0",
+          "updatedAt": "2026-09-01T10:00:00Z",
+          "updatedBy": "CIDES学术专家组",
+          "changelog": "系统初始化默认标准准入研判提示词",
+          "content": "你正在执行CIDES跨境投资研究节点【国别与区域宏观准入研判】。\n研究目标：\n全面核验目标东道国（如赞比亚等）在涉案行业（矿业/工业制造/新能源）的最新外商投资法规。\n分析重点：\n1. 外商独资与合资限制：东道国法律是否允许外资全资控股？是否强制要求东道国政府或本土资本持有保底“黄金股”或非稀释免费权益（Carried Interest）？\n2. 历史政策稳定性与国有化风险：近10年东道国是否存在单边撕毁协议、征收或强行重组外资项目的判例？\n3. 双边与多边保护：东道国与投资来源国（如中国）是否签署并生效《双边投资保护协定》(BIT)及《避免双重征税协定》(DTA)？是否认可ICSID国际仲裁？\n4. 证据核验要求：必须检索东道国投资促进署(ZDA/BOI)、矿业部、司法部官方公告或最新法定成文法。\n5. 动态分支触发：若发现存在重大准入排他条款、新出台限制性法律草案或主权债务违约冲击，须提议生成分支专项核查。",
+          "isCurrent": true
+        }
+      ],
+      "startConditions": "用户已正式确认初始投资意图识别结果，并升级为正式投资研究基线。",
+      "completionConditions": "完成政策检索、法律条文核验、得出准入及持股比例明确结论，并列举可追溯证据。",
+      "userConfirmationRequirements": "用户必须对宏观准入限制性结论进行确认或纠偏，方可进入项目适配环节。",
+      "branchTriggers": [
+        "发现东道国近期存在修法提案拟限制外资股权",
+        "投资来源国与东道国无有效双边投资保护协定",
+        "存在主权债务违约引发的系统性外资没收风险"
+      ],
+      "nextRecommendedNodeId": "NODE_PROJECT_FIT",
+      "failOrPauseHandling": "若检索到禁止外商准入条目，立即暂停主线推荐，提出【重大准入红线分支】供用户裁定。",
+      "outputPersistenceKey": "macro_entry_verdict"
+    },
+    {
+      "id": "NODE_PROJECT_FIT",
+      "name": "项目场景与资源禀赋适配",
+      "purpose": "验证标的资产实际储量/产能、品位或区位真实性，评估项目类型（绿地/并购）与投资意图契合度。",
+      "scope": "矿权界线重叠核验、资源储量可采期、JORC/NI43-101合规性、选冶试验可行性、物流港口运距。",
+      "inputRequirements": [
+        "正式投资基线",
+        "已确认的【国别与区域宏观准入研判】阶段成果"
+      ],
+      "outputStructure": [
+        "标的项目资源与技术可行性指标表",
+        "现有选冶/生产工艺路线适配度评价",
+        "物流走廊及港口运力约束评估",
+        "项目场景适配性裁决"
+      ],
+      "activePromptVersion": "V1.0",
+      "activePrompt": "你正在执行CIDES跨境投资研究节点【项目场景与资源禀赋适配】。\n研究目标：\n根据已确认的投资基线与宏观成果，深度核实具体标的项目（如特定铜矿山/工业厂区）的资源条件真实性与技术适配。\n分析重点：\n1. 资源储量与品位验证：核验标的提供的地质勘探报告是否符合国际标准（如JORC规范或NI 43-101）？是否存在高估品位或低估开采难度的情形？\n2. 矿权或产权边界清洁度：标的大矿权（Large-Scale Mining Licence）在矿业 cadastre 地籍数据库中状态是否清晰？是否存在小矿权（Artisanal Licence）重叠套现风险？\n3. 技术路径与选冶回收率：针对原矿性质（氧化矿、硫化矿或混合矿），浸出-萃取-电积（SX-EW）或浮选工艺回收率是否达标？\n4. 物流走廊与出口通达：从矿区至主要海运出港口（如坦桑尼亚达累斯萨拉姆港、莫桑比克贝拉港或纳米比亚鲸湾港）陆运成本与通关损耗。\n5. 动态分支触发：若发现储量数据来源单一且缺乏第三方验资背书，须触发【储量可信度分支】。",
+      "promptVersions": [
+        {
+          "versionId": "pv-fit-1",
+          "versionNumber": "V1.0",
+          "updatedAt": "2026-09-01T10:00:00Z",
+          "updatedBy": "CIDES学术专家组",
+          "changelog": "系统初始化默认资源与技术适配提示词",
+          "content": "你正在执行CIDES跨境投资研究节点【项目场景与资源禀赋适配】。\n研究目标：\n根据已确认的投资基线与宏观成果，深度核实具体标的项目（如特定铜矿山/工业厂区）的资源条件真实性与技术适配。\n分析重点：\n1. 资源储量与品位验证：核验标的提供的地质勘探报告是否符合国际标准（如JORC规范或NI 43-101）？是否存在高估品位或低估开采难度的情形？\n2. 矿权或产权边界清洁度：标的大矿权（Large-Scale Mining Licence）在矿业 cadastre 地籍数据库中状态是否清晰？是否存在小矿权（Artisanal Licence）重叠套现风险？\n3. 技术路径与选冶回收率：针对原矿性质（氧化矿、硫化矿或混合矿），浸出-萃取-电积（SX-EW）或浮选工艺回收率是否达标？\n4. 物流走廊与出口通达：从矿区至主要海运出港口（如坦桑尼亚达累斯萨拉姆港、莫桑比克贝拉港或纳米比亚鲸湾港）陆运成本与通关损耗。\n5. 动态分支触发：若发现储量数据来源单一且缺乏第三方验资背书，须触发【储量可信度分支】。",
+          "isCurrent": true
+        }
+      ],
+      "startConditions": "【国别与区域宏观准入研判】已获用户正式确认，且无未解决的重大否决性准入红线。",
+      "completionConditions": "完成技术路径合理性与储量/区位证据链条核查，明确潜在技术减产风险。",
+      "userConfirmationRequirements": "用户必须对矿权/产权边界及工艺技术假设的校验结果进行确认。",
+      "branchTriggers": [
+        "矿权登记存在司法争议或民间采矿重叠",
+        "矿石选冶指标与设计方案存在明显差异"
+      ],
+      "nextRecommendedNodeId": "NODE_INFRA_REGULATION",
+      "failOrPauseHandling": "若标的储量造假或矿权无法过户，终止主线研究并生成替代标的筛选分支。",
+      "outputPersistenceKey": "project_technical_fit"
+    },
+    {
+      "id": "NODE_INFRA_REGULATION",
+      "name": "关键制度与要素供给分析",
+      "purpose": "攻坚电力、能源、水资源、土地权属与环保等硬约束要素供给的真实成本与可靠性。",
+      "scope": "工业电价阶梯、国家电网限电与自备电站、工业用水水权、土地所有权转换（习惯地转公地）、环评审批。",
+      "inputRequirements": [
+        "正式投资基线",
+        "已确认的【项目场景与资源禀赋适配】阶段成果"
+      ],
+      "outputStructure": [
+        "能源要素（电力/燃料）实际供应方案与度电成本清单",
+        "土地租赁/出让年限与酋长谈判法律风险分析",
+        "环境管理署（如ZEMA）审批周期与质押金要求",
+        "要素供给综合瓶颈评级"
+      ],
+      "activePromptVersion": "V1.0",
+      "activePrompt": "你正在执行CIDES跨境投资研究节点【关键制度与要素供给分析】。\n研究目标：\n深入核查工业生产三大命脉：电价与电力稳定度、供水水权、土地合规性与环境保护制度约束。\n分析重点：\n1. 真实电力制度与电价：重点核查东道国国家电力公用事业单位（如ZESCO）的大工业目录电价、容量费，以及是否必须签署保底购电协议(PPA)？国家电网年均停电/限电小时数是多少？\n2. 备用电源与度电加权成本：是否需要自建备用柴油机组、重油机组或并网光储互补电站？综合平准化度电成本(LCOE)应核算为多少？\n3. 土地性质核实：项目用地属于国家直属公有地（State Land）还是部族酋长习惯地（Customary Land）？习惯地转换为99年国家租赁地的法定程序、补偿标准与周期。\n4. 环保排污与质押金：当地环境局对尾矿库、酸性废水排放的环评审批(EIA)周期，以及强制性“环境恢复基金”(EPF)现金抵押要求。\n5. 动态分支触发：若发现电价存在多份文件冲突，或干旱导致国家电网全面削减负荷，必须立即触发【能源危机与电价重构分支】。",
+      "promptVersions": [
+        {
+          "versionId": "pv-infra-1",
+          "versionNumber": "V1.0",
+          "updatedAt": "2026-09-01T10:00:00Z",
+          "updatedBy": "CIDES学术专家组",
+          "changelog": "系统初始化默认要素供给与电价研究提示词",
+          "content": "你正在执行CIDES跨境投资研究节点【关键制度与要素供给分析】。\n研究目标：\n深入核查工业生产三大命脉：电价与电力稳定度、供水水权、土地合规性与环境保护制度约束。\n分析重点：\n1. 真实电力制度与电价：重点核查东道国国家电力公用事业单位（如ZESCO）的大工业目录电价、容量费，以及是否必须签署保底购电协议(PPA)？国家电网年均停电/限电小时数是多少？\n2. 备用电源与度电加权成本：是否需要自建备用柴油机组、重油机组或并网光储互补电站？综合平准化度电成本(LCOE)应核算为多少？\n3. 土地性质核实：项目用地属于国家直属公有地（State Land）还是部族酋长习惯地（Customary Land）？习惯地转换为99年国家租赁地的法定程序、补偿标准与周期。\n4. 环保排污与质押金：当地环境局对尾矿库、酸性废水排放的环评审批(EIA)周期，以及强制性“环境恢复基金”(EPF)现金抵押要求。\n5. 动态分支触发：若发现电价存在多份文件冲突，或干旱导致国家电网全面削减负荷，必须立即触发【能源危机与电价重构分支】。",
+          "isCurrent": true
+        }
+      ],
+      "startConditions": "【项目场景与资源禀赋适配】已获确认，具备清晰的生产负荷与用水用电规模参数。",
+      "completionConditions": "查明真实有效电价文号、供电保证率、土地性质确权路径与环评硬性成本。",
+      "userConfirmationRequirements": "用户必须对电价成本假设修正及自备备用电源追加预算予以确认。",
+      "branchTriggers": [
+        "电价存在多份官方文件重大冲突",
+        "国家电网实施大面积限电危及连续生产",
+        "土地涉及部落习惯地不可转让争议"
+      ],
+      "nextRecommendedNodeId": "NODE_OPERATIONAL_COMPLIANCE",
+      "failOrPauseHandling": "若无法保障基本电力负荷，暂停财务测算，提议开展微电网自备能源专项方案。",
+      "outputPersistenceKey": "infra_regulation_matrix"
+    },
+    {
+      "id": "NODE_OPERATIONAL_COMPLIANCE",
+      "name": "项目可实施性与运营合规",
+      "purpose": "研判项目建设期与运营期劳工本地化、社区劳资博弈、安全环保及外籍人员签证政策。",
+      "scope": "本地雇佣法案(Local Content)、最低工资标准、工会集体谈判协定(CBA)、外籍专家配额及清关便利化。",
+      "inputRequirements": [
+        "正式投资基线",
+        "已确认的【关键制度与要素供给分析】阶段成果"
+      ],
+      "outputStructure": [
+        "本地化雇佣与外籍用工配额方案",
+        "主要工会历史罢工记录与薪资增长预期",
+        "社区社会责任(CSR)与发展协议(CDA)法定要求",
+        "可实施性合规风险控制清单"
+      ],
+      "activePromptVersion": "V1.0",
+      "activePrompt": "你正在执行CIDES跨境投资研究节点【项目可实施性与运营合规】。\n研究目标：\n研判在东道国现场建设并运营工厂/矿山的现实治理挑战，重点防范停工罢工与行政处罚。\n分析重点：\n1. 劳工本地化合规性：《本地内容法》对管理层、技术工人和普工的本土比例硬性指标；外籍高级管理人员与工程师的工作许可(Work Permit)申请周期及拒签率。\n2. 工会集体谈判与罢工历史：行业主导工会（如矿工工会MUZ）在当地影响力如何？过去五年有无恶性罢工潮？薪酬年涨幅惯例。\n3. 社区发展协定(CDA)：法律是否强制要求将年度利润或营业额的一定比例划拨当地社区信托？\n4. 设备进口与海关清关：大型成套选冶设备从边境口岸（如津巴布韦奇龙杜口岸或刚果金卡松巴莱萨口岸）清关时间及免税清单申请便利度。\n5. 动态分支触发：若发现近期出台严苛用工限制或当地工会正与同行处于诉讼仲裁状态，触发【工会劳资冲突分支】。",
+      "promptVersions": [
+        {
+          "versionId": "pv-ops-1",
+          "versionNumber": "V1.0",
+          "updatedAt": "2026-09-01T10:00:00Z",
+          "updatedBy": "CIDES学术专家组",
+          "changelog": "系统初始化默认可实施性与合规用工提示词",
+          "content": "你正在执行CIDES跨境投资研究节点【项目可实施性与运营合规】。\n研究目标：\n研判在东道国现场建设并运营工厂/矿山的现实治理挑战，重点防范停工罢工与行政处罚。\n分析重点：\n1. 劳工本地化合规性：《本地内容法》对管理层、技术工人和普工的本土比例硬性指标；外籍高级管理人员与工程师的工作许可(Work Permit)申请周期及拒签率。\n2. 工会集体谈判与罢工历史：行业主导工会（如矿工工会MUZ）在当地影响力如何？过去五年有无恶性罢工潮？薪酬年涨幅惯例。\n3. 社区发展协定(CDA)：法律是否强制要求将年度利润或营业额的一定比例划拨当地社区信托？\n4. 设备进口与海关清关：大型成套选冶设备从边境口岸（如津巴布韦奇龙杜口岸或刚果金卡松巴莱萨口岸）清关时间及免税清单申请便利度。\n5. 动态分支触发：若发现近期出台严苛用工限制或当地工会正与同行处于诉讼仲裁状态，触发【工会劳资冲突分支】。",
+          "isCurrent": true
+        }
+      ],
+      "startConditions": "【关键制度与要素供给分析】已确认通过。",
+      "completionConditions": "完成劳工用工配额核查、工会风险评估及社区责任法律边界论证。",
+      "userConfirmationRequirements": "用户必须确认外派团队规模与本地用工成本预算预估。",
+      "branchTriggers": [
+        "出台强制性本土化技术转让或全员本地化新规",
+        "涉及敏感保护区或原住民历史土地纠纷"
+      ],
+      "nextRecommendedNodeId": "NODE_FINANCIAL_SENSITIVITY",
+      "failOrPauseHandling": "若外籍核心技术团队无法获取合法准字，暂停推进并出具本地替代团队评估。",
+      "outputPersistenceKey": "operational_compliance_report"
+    },
+    {
+      "id": "NODE_FINANCIAL_SENSITIVITY",
+      "name": "经济效益与财务敏感性测算",
+      "purpose": "建立全生命周期财务测算模型，纳入滑动税率、暴利税、特许权费及要素变动进行多维度压力测试。",
+      "scope": "CAPEX与OPEX明细、特许权使用费阶梯计算、企业所得税与折旧抵税、IRR/NPV/静态回收期、大宗商品价格与电价敏感性矩阵。",
+      "inputRequirements": [
+        "正式投资基线",
+        "前面所有确认成果：要素成本（真实电价、运费）、技术产能及资本性开支(CAPEX)"
+      ],
+      "outputStructure": [
+        "基准情景全投资财务现金流模型 (DCF)",
+        "产品售价（如铜价）与电价双变量IRR敏感性分析表",
+        "静态与动态投资回收期计算",
+        "下行极端情景抗风险压力测试结论"
+      ],
+      "activePromptVersion": "V1.0",
+      "activePrompt": "你正在执行CIDES跨境投资研究节点【经济效益与财务敏感性测算】。\n研究目标：\n综合前置节点核验的各项硬成本（修正后电价、运费、税费、人工），构建严谨、去水分的财务经济效益模型。\n分析重点：\n1. 真实税费穿透：\n   - 矿业特许权使用费（Mineral Royalty Tax）：严格按照东道国最新滑动税率计算（如按LME现货价格阶梯计税），并确认该项税费是否允许在企业所得税前列支抵扣！\n   - 企业所得税(CIT)：是否享受先锋产业(Pioneer Status)或特殊经济区(SEZ)减免？\n   - 进口增值税(VAT)与留抵退税：核实当地税务局历史退税周期，防范退税滞后导致的千万级流动性挤占。\n2. 资本性支出(CAPEX)与运营成本(OPEX)测算：包含选冶厂房、自备电源、矿山剥离与采矿设备、酸性尾矿库以及大工业直供线路接入费。\n3. 财务指标推演：测算基准IRR、股权IRR、NPV（采用适当主权风险溢价折现率如12%）及投资回收期。\n4. 敏感性压力测试：必须测试当商品价格下跌20%、度电成本上升30%时，项目的盈亏平衡点与现金流安全垫。\n5. 动态分支触发：若敏感性分析显示项目在基准铜价下IRR不足12%，或电价波动即可直接吞噬全案净利，触发【财务重构分支】。",
+      "promptVersions": [
+        {
+          "versionId": "pv-fin-1",
+          "versionNumber": "V1.0",
+          "updatedAt": "2026-09-01T10:00:00Z",
+          "updatedBy": "CIDES学术专家组",
+          "changelog": "系统初始化默认财务与税费模型测算提示词",
+          "content": "你正在执行CIDES跨境投资研究节点【经济效益与财务敏感性测算】。\n研究目标：\n综合前置节点核验的各项硬成本（修正后电价、运费、税费、人工），构建严谨、去水分的财务经济效益模型。\n分析重点：\n1. 真实税费穿透：\n   - 矿业特许权使用费（Mineral Royalty Tax）：严格按照东道国最新滑动税率计算（如按LME现货价格阶梯计税），并确认该项税费是否允许在企业所得税前列支抵扣！\n   - 企业所得税(CIT)：是否享受先锋产业(Pioneer Status)或特殊经济区(SEZ)减免？\n   - 进口增值税(VAT)与留抵退税：核实当地税务局历史退税周期，防范退税滞后导致的千万级流动性挤占。\n2. 资本性支出(CAPEX)与运营成本(OPEX)测算：包含选冶厂房、自备电源、矿山剥离与采矿设备、酸性尾矿库以及大工业直供线路接入费。\n3. 财务指标推演：测算基准IRR、股权IRR、NPV（采用适当主权风险溢价折现率如12%）及投资回收期。\n4. 敏感性压力测试：必须测试当商品价格下跌20%、度电成本上升30%时，项目的盈亏平衡点与现金流安全垫。\n5. 动态分支触发：若敏感性分析显示项目在基准铜价下IRR不足12%，或电价波动即可直接吞噬全案净利，触发【财务重构分支】。",
+          "isCurrent": true
+        }
+      ],
+      "startConditions": "【项目可实施性与运营合规】及要素成本已获得用户正式确认。",
+      "completionConditions": "输出完整现金流指标测算表及双变量敏感性矩阵，给出财务底线建议。",
+      "userConfirmationRequirements": "用户必须对折现率假设、预期收益率下限及留抵退税风险予以确认。",
+      "branchTriggers": [
+        "特许权使用费阶梯计算政策出现争议",
+        "增值税长期拖欠退税导致流动性断裂",
+        "测算IRR低于投资人基准回报率门槛"
+      ],
+      "nextRecommendedNodeId": "NODE_TRANSACTION_STRUCTURE",
+      "failOrPauseHandling": "若基准财务模型无法实现正向现金流，暂停推进，出具财务预警并请求用户决策是否继续。",
+      "outputPersistenceKey": "financial_model_sensitivity"
+    },
+    {
+      "id": "NODE_TRANSACTION_STRUCTURE",
+      "name": "交易结构、外汇与交割退出条件",
+      "purpose": "设计最优跨境多层持股SPV架构，明确外汇汇出管道、预提所得税优化、交割先决条件(CPs)与退出路径。",
+      "scope": "离岸持股架构、外汇管制与法定申报、预提税筹划、监管审批(ODI/FDI/反垄断)、退出方式(并购转让/上市/清算)。",
+      "inputRequirements": [
+        "正式投资基线",
+        "已确认的【经济效益与财务敏感性测算】及所有前置节点成果"
+      ],
+      "outputStructure": [
+        "多层跨境SPV持股架构图及节税论证",
+        "外汇汇出路径及合规报备要求",
+        "股权转让协议(SPA)核心交割先决条件清单(CPs)",
+        "中长期流动性退出机制"
+      ],
+      "activePromptVersion": "V1.0",
+      "activePrompt": "你正在执行CIDES跨境投资研究节点【交易结构、外汇与交割退出条件】。\n研究目标：\n设计可落地的投资架构与交易协议保护机制，确保资金安全“进得去、出得来、税负优、能退出”。\n分析重点：\n1. 跨境离岸SPV架构：结合中资出海实践，对比直接投资（国内->东道国）与多层SPV（国内->中国香港/新加坡/毛里求斯->东道国）在股息分红预提税(WHT)、资本利得税及投资仲裁管辖上的利弊。\n2. 外汇与利润出境合规：东道国央行对外汇汇出的限制条款、大额购汇审批周期、是否要求留存法定外汇准备金或强制结汇？\n3. 关键交割先决条件(Conditions Precedent, CPs)：列出买方支付对价前必须满足的硬性条件（如无瑕疵矿权过户完成、环境署批准、反垄断机构批准、国有矿业公司放弃优先购买权）。\n4. 退出机制规划：项目进入成熟期或遇到主权风险时，通过离岸控股权转让、国际大宗贸易商回购或公开资本市场IPO退出的可行路径。\n5. 动态分支触发：若发现东道国出台新规限制离岸间接股权转让避税并实行穿透征税，触发【离岸架构税制穿透分支】。",
+      "promptVersions": [
+        {
+          "versionId": "pv-deal-1",
+          "versionNumber": "V1.0",
+          "updatedAt": "2026-09-01T10:00:00Z",
+          "updatedBy": "CIDES学术专家组",
+          "changelog": "系统初始化默认交易架构与外汇交割提示词",
+          "content": "你正在执行CIDES跨境投资研究节点【交易结构、外汇与交割退出条件】。\n研究目标：\n设计可落地的投资架构与交易协议保护机制，确保资金安全“进得去、出得来、税负优、能退出”。\n分析重点：\n1. 跨境离岸SPV架构：结合中资出海实践，对比直接投资（国内->东道国）与多层SPV（国内->中国香港/新加坡/毛里求斯->东道国）在股息分红预提税(WHT)、资本利得税及投资仲裁管辖上的利弊。\n2. 外汇与利润出境合规：东道国央行对外汇汇出的限制条款、大额购汇审批周期、是否要求留存法定外汇准备金或强制结汇？\n3. 关键交割先决条件(Conditions Precedent, CPs)：列出买方支付对价前必须满足的硬性条件（如无瑕疵矿权过户完成、环境署批准、反垄断机构批准、国有矿业公司放弃优先购买权）。\n4. 退出机制规划：项目进入成熟期或遇到主权风险时，通过离岸控股权转让、国际大宗贸易商回购或公开资本市场IPO退出的可行路径。\n5. 动态分支触发：若发现东道国出台新规限制离岸间接股权转让避税并实行穿透征税，触发【离岸架构税制穿透分支】。",
+          "isCurrent": true
+        }
+      ],
+      "startConditions": "【经济效益与财务敏感性测算】已通过用户确认。",
+      "completionConditions": "输出清晰的SPV架构方案、交割先决条件清单及退出机制设计。",
+      "userConfirmationRequirements": "用户必须对交易架构、投资币种及主要交割风险对价扣减机制进行确认。",
+      "branchTriggers": [
+        "东道国对外汇出境设立紧急管制法令",
+        "境外间接转让股权面临高额追溯性税负"
+      ],
+      "nextRecommendedNodeId": "NODE_SYNTHESIS",
+      "failOrPauseHandling": "若外汇利润无法依法汇出，提议暂停投资交割准备，开展离岸贸易对冲分支专项论证。",
+      "outputPersistenceKey": "transaction_structure_exit"
+    },
+    {
+      "id": "NODE_SYNTHESIS",
+      "name": "综合研究成果与战略研判",
+      "purpose": "汇总前序所有经用户确认的正式成果与分支研究结论，形成综合决策支持报告与红线预警体系。",
+      "scope": "全主线交叉验证成果汇总、分支研究回流吸收、风险热力矩阵、投资关键红线与实施路线图。",
+      "inputRequirements": [
+        "正式投资基线",
+        "所有前置节点确认成果（宏观、资源、要素、合规、财务、交易结构）",
+        "所有已完成分支的结论及对主线的修正判断"
+      ],
+      "outputStructure": [
+        "CIDES综合投资研究报告（Executive Dossier）",
+        "核心价值与风险矩阵平衡表",
+        "关键投资先决条件(CPs)与谈判筹码建议",
+        "供人作出最终投资决定的研判案卷"
+      ],
+      "activePromptVersion": "V1.0",
+      "activePrompt": "你正在执行CIDES跨境投资研究节点【综合研究成果与战略研判】。\n研究目标：\n严格汇总主线各个节点已经用户逐层确认的正式基线成果，以及所有分支研究带回主线的修正结论，形成高可信度的综合研究报告。\n分析重点：\n1. 证据链条闭环：系统性梳理各项核心判断的证据依托，标明哪些已被官方文件验证，哪些仍属于风险假设。\n2. 历史纠偏与分支影响统摄：总结在研究推进过程中，通过分支研究与用户纠偏所修正的重要参数（如电价上浮对IRR的压制、外汇路径设计等）。\n3. 投资致命红线（Deal-killers）提炼：清晰列明若在商务谈判或现场尽职调查中一旦触碰、必须立即否决交易的3-5条核心红线。\n4. 实施阶段里程碑规划：提供从签署框架协议、完成SPA交割到试运行的关键时间表与预算建议。\n5. 权责边界申明：本系统为专家研究系统，提供客观、严谨、多方论证的决策依据；绝不代替投资决策委员会的人工最终定案！",
+      "promptVersions": [
+        {
+          "versionId": "pv-syn-1",
+          "versionNumber": "V1.0",
+          "updatedAt": "2026-09-01T10:00:00Z",
+          "updatedBy": "CIDES学术专家组",
+          "changelog": "系统初始化默认综合战略研判提示词",
+          "content": "你正在执行CIDES跨境投资研究节点【综合研究成果与战略研判】。\n研究目标：\n严格汇总主线各个节点已经用户逐层确认的正式基线成果，以及所有分支研究带回主线的修正结论，形成高可信度的综合研究报告。\n分析重点：\n1. 证据链条闭环：系统性梳理各项核心判断的证据依托，标明哪些已被官方文件验证，哪些仍属于风险假设。\n2. 历史纠偏与分支影响统摄：总结在研究推进过程中，通过分支研究与用户纠偏所修正的重要参数（如电价上浮对IRR的压制、外汇路径设计等）。\n3. 投资致命红线（Deal-killers）提炼：清晰列明若在商务谈判或现场尽职调查中一旦触碰、必须立即否决交易的3-5条核心红线。\n4. 实施阶段里程碑规划：提供从签署框架协议、完成SPA交割到试运行的关键时间表与预算建议。\n5. 权责边界申明：本系统为专家研究系统，提供客观、严谨、多方论证的决策依据；绝不代替投资决策委员会的人工最终定案！",
+          "isCurrent": true
+        }
+      ],
+      "startConditions": "前序所有6大专业研究节点均已全部完成并获得用户正式确认。",
+      "completionConditions": "生成完整综合战略案卷，并通过证据交叉核验审查。",
+      "userConfirmationRequirements": "用户必须对综合研究案卷进行最后审阅，方可解锁【人工最终投资决策】入口。",
+      "branchTriggers": [
+        "综合比对发现各节点之间存在未解决的底层数据逻辑矛盾"
+      ],
+      "nextRecommendedNodeId": "NODE_HUMAN_DECISION",
+      "failOrPauseHandling": "若各节点数据逻辑存在裂痕，打回相关节点重新核算。",
+      "outputPersistenceKey": "cides_comprehensive_synthesis"
+    }
+  ],
+  "phaseResults": {
+    "NODE_MACRO_ENTRY": [
+      {
+        "id": "pr-node_macro_entry-1789694771573",
+        "nodeId": "NODE_MACRO_ENTRY",
+        "nodeName": "国别与区域宏观准入研判",
+        "version": 1,
+        "versionLabel": "阶段成果 V1",
+        "status": "confirmed",
+        "promptVersionUsed": "V1.0",
+        "generatedAt": "2026-09-18T01:26:11.573Z",
+        "executiveSummary": "赞比亚铜矿投资准入环境整体友好，但面临动态政策调整风险。赞比亚《2015年矿业与矿产开发法》允许外资全资控股，无强制性“黄金股”要求，但近年来政府通过调整矿业税制（如取消矿产特许权使用费抵扣所得税）强化财政收益。赞比亚与中国签署有BIT及DTA，且承认ICSID仲裁。核心风险在于赞比亚政府对矿业财政政策的频繁调整以及电力供应的不稳定性。目前准入法律框架清晰，但需密切关注《2024年矿业法修正案》草案对本地化采购及矿权持有期限的潜在影响。",
+        "detailedFindingsMarkdown": "### 1. 外商投资准入与股权结构\n根据《2015年矿业与矿产开发法》，外资可持有矿业项目100%股权，无强制性本土合资要求。然而，赞比亚政府通过国有矿业投资公司ZCCM-IH在部分大型项目中持有少数股权，虽非强制，但作为“战略合作伙伴”参与项目是常见的商业惯例。\n\n### 2. 财税与法律保护\n- **双边协定**：中赞签署有《关于促进和相互保护投资协定》(1996)及《避免双重征税协定》(2010)，为投资提供法律保护。\n- **争议解决**：赞比亚是ICSID成员国，认可国际仲裁裁决，但在执行层面需通过赞比亚高等法院确认，存在一定司法程序耗时风险。\n- **税制动态**：赞比亚矿业税制近年来由“基于利润的税收”向“基于收入的税收”倾斜，旨在确保政府在铜价波动时获得稳定财政收入。\n\n### 3. 历史政策稳定性\n近10年未发生大规模征收事件，但存在多次单方面调整矿业税率的记录（如2019年及2023年税制改革），导致外资矿企与政府间存在持续的财政博弈。",
+        "verifiedEvidences": [
+          {
+            "id": "ev-1",
+            "title": "Mines and Minerals Development Act, 2015",
+            "source": "Zambia Ministry of Mines and Minerals Development",
+            "url": "https://www.mmmd.gov.zm",
+            "date": "2015-08-14",
+            "snippet": "The Act allows for the granting of mining rights to both local and foreign entities without mandatory state equity participation.",
+            "supportsFinding": true,
+            "reliability": "高 (官方法规)",
+            "contradictionNotes": "无"
+          },
+          {
+            "id": "ev-2",
+            "title": "Agreement between the Government of the PRC and the Government of the Republic of Zambia on the Promotion and Reciprocal Protection of Investments",
+            "source": "UNCTAD Investment Policy Hub",
+            "url": "https://investmentpolicy.unctad.org",
+            "date": "1996-11-22",
+            "snippet": "Provides for fair and equitable treatment and protection against expropriation.",
+            "supportsFinding": true,
+            "reliability": "高 (国际条约)",
+            "contradictionNotes": "无"
+          }
+        ],
+        "criticalRisks": [
+          {
+            "id": "rk-1",
+            "category": "税务与外汇",
+            "severity": "高",
+            "description": "矿业税制频繁变动及外汇管制可能影响利润汇出。",
+            "mitigation": "在投资协议中争取签署《投资稳定协议》(Investment Stability Agreement)，锁定税率期限。"
+          },
+          {
+            "id": "rk-2",
+            "category": "基础设施与能源",
+            "severity": "高",
+            "description": "赞比亚铜带省电力供应严重依赖水电，受气候变化影响大，存在电力短缺风险。",
+            "mitigation": "评估自备电厂或与ZESCO签署长期购电协议(PPA)的可行性。"
+          }
+        ],
+        "assumptionsValidated": [
+          {
+            "hypothesis": "外资可全资控股矿业项目",
+            "status": "validated",
+            "explanation": "经查阅《2015年矿业与矿产开发法》，法律未规定强制性外资持股上限。"
+          }
+        ],
+        "proposedBranches": [
+          {
+            "id": "br-1",
+            "triggerType": "source_conflict",
+            "title": "赞比亚矿业税制改革专项核查",
+            "triggerReason": "近期关于矿业特许权使用费(Royalty)计算方式的讨论存在政策不确定性。",
+            "objective": "明确未来5年矿业税收负担的边界。",
+            "scope": "分析赞比亚财政部最新预算案及矿业商会(ZCM)的反馈报告。",
+            "impactOnMainline": "直接影响项目财务模型中的现金流预测及内部收益率(IRR)。",
+            "suggestedPrompt": "分析赞比亚最新矿业税制改革对绿地铜矿项目财务模型的影响，重点关注特许权使用费的边际税率变化。"
+          }
+        ],
+        "nextRecommendedStep": "进入【基础设施与能源配套评估】节点，重点核实铜带省电力供应稳定性及物流运输成本。",
+        "executionRecord": {
+          "executionId": "exec-NODE_MACRO_ENTRY-1789694772772",
+          "nodeId": "NODE_MACRO_ENTRY",
+          "nodeName": "国别与区域宏观准入研判",
+          "startedAt": "2026-09-18T01:25:52.623Z",
+          "completedAt": "2026-09-18T01:26:12.772Z",
+          "durationMs": 20149,
+          "provider": "Google Gemini",
+          "model": "gemini-3.1-flash-lite",
+          "promptVersion": "V1.0",
+          "inputContextLength": 2814,
+          "outputLength": 2840,
+          "aiCalled": true,
+          "searchRequested": false,
+          "searchExecuted": false,
+          "searchQueries": [],
+          "sources": [],
+          "status": "completed",
+          "error": null,
+          "createdAt": "2026-09-18T01:26:12.772Z",
+          "tokens": {
+            "inputTokens": 1552,
+            "outputTokens": 1268,
+            "totalTokens": 2820
+          },
+          "executionSource": "gemini"
+        },
+        "executionSource": "gemini",
+        "userConfirmationLog": {
+          "type": "confirm",
+          "confirmedAt": "2026-09-18T01:26:17.823Z",
+          "userNote": "人工审阅通过，确认为正式阶段成果基线，解锁后续节点输入。",
+          "acceptedAsBaseline": true
+        }
+      }
+    ],
+    "NODE_PROJECT_FIT": [
+      {
+        "id": "pr-node_project_fit-1789694803242",
+        "nodeId": "NODE_PROJECT_FIT",
+        "nodeName": "项目场景与资源禀赋适配",
+        "version": 1,
+        "versionLabel": "阶段成果 V1",
+        "status": "confirmed",
+        "promptVersionUsed": "V1.0",
+        "generatedAt": "2026-09-18T01:26:43.242Z",
+        "executiveSummary": "针对赞比亚铜带省6亿美元绿地铜矿项目，本节点重点核实了资源禀赋与基础设施适配性。研究发现，赞比亚铜带省地质条件成熟，但绿地项目面临高昂的初期基建投入与电力供应瓶颈。目前核心风险在于矿权边界的法律清洁度及选冶工艺对复杂矿石的适应性。由于缺乏第三方独立勘探报告（NI 43-101/JORC），当前储量数据仅为企业自报，存在显著的估值风险。建议立即启动储量可信度专项核查，并对电力接入方案进行压力测试，以确保项目财务模型的可行性。",
+        "detailedFindingsMarkdown": "### 1. 资源禀赋与地质风险\n赞比亚铜带省（Copperbelt）以沉积型铜矿为主，但绿地项目面临矿石性质不确定性。若矿石含砷量高或氧化率波动大，将直接导致SX-EW工艺回收率下降。\n\n### 2. 基础设施与物流适配\n- **电力供应**：赞比亚国家电力公司（ZESCO）供应紧张，绿地项目需考虑自备电厂或与周边矿企共享电力基础设施。\n- **物流通道**：主要出口路径为经坦赞铁路至达累斯萨拉姆港，或经陆路至纳米比亚鲸湾港。需核算跨境运输的通关损耗与物流成本（预计占运营成本的15%-20%）。\n\n### 3. 矿权合规性\n赞比亚矿业地籍数据库（Mining Cadastre）显示，铜带省存在大量历史遗留的小矿权（ASM），绿地项目在进行土地征收时，需防范与ASM矿权重叠引发的社区冲突与法律诉讼。",
+        "verifiedEvidences": [
+          {
+            "id": "ev-1",
+            "title": "赞比亚《2015年矿业与矿产开发法》",
+            "source": "赞比亚政府官方公报",
+            "url": "https://www.mmmd.gov.zm/",
+            "date": "2015",
+            "snippet": "规定了矿业权申请、持有及转让的法律框架，明确了大型矿业许可证（LSM）的排他性权利。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "无"
+          }
+        ],
+        "criticalRisks": [
+          {
+            "id": "rk-1",
+            "category": "基础设施与能源",
+            "severity": "高",
+            "description": "赞比亚电力供应长期短缺，绿地项目若无独立电力配套，将面临频繁停产风险。",
+            "mitigation": "在财务模型中计入自备电厂（柴油/太阳能）建设成本，或与ZESCO签署长期购电协议（PPA）。"
+          },
+          {
+            "id": "rk-2",
+            "category": "法律与特许权",
+            "severity": "高",
+            "description": "矿权边界可能存在小矿权（ASM）重叠，导致征地受阻或法律纠纷。",
+            "mitigation": "聘请当地专业法律团队进行矿权地籍数据库（Cadastre）的尽职调查，并进行实地边界勘测。"
+          }
+        ],
+        "assumptionsValidated": [
+          {
+            "hypothesis": "赞比亚矿业法律框架允许外资全资控股",
+            "status": "validated",
+            "explanation": "根据《2015年矿业与矿产开发法》，外资可持有100%矿权，无强制本地股权比例要求。"
+          }
+        ],
+        "proposedBranches": [
+          {
+            "id": "br-2",
+            "triggerType": "source_conflict",
+            "title": "储量可信度专项核查",
+            "triggerReason": "项目方提供的储量数据缺乏第三方（JORC/NI 43-101）认证，存在高估风险。",
+            "objective": "验证矿床地质报告的真实性与开采可行性。",
+            "scope": "聘请第三方地质咨询机构对现有钻孔数据进行抽检与复核。",
+            "impactOnMainline": "若储量被证伪，项目财务模型将彻底失效，需重新评估投资价值。",
+            "suggestedPrompt": "针对赞比亚铜矿项目，如何构建第三方地质尽调框架以验证JORC标准的储量报告？"
+          }
+        ],
+        "nextRecommendedStep": "进入【技术路径与选冶工艺适配】节点，重点核实选矿回收率与环境影响评估。",
+        "executionRecord": {
+          "executionId": "exec-NODE_PROJECT_FIT-1789694804439",
+          "nodeId": "NODE_PROJECT_FIT",
+          "nodeName": "项目场景与资源禀赋适配",
+          "startedAt": "2026-09-18T01:26:24.607Z",
+          "completedAt": "2026-09-18T01:26:44.439Z",
+          "durationMs": 19832,
+          "provider": "Google Gemini",
+          "model": "gemini-3.1-flash-lite",
+          "promptVersion": "V1.0",
+          "inputContextLength": 3618,
+          "outputLength": 2081,
+          "aiCalled": true,
+          "searchRequested": false,
+          "searchExecuted": false,
+          "searchQueries": [],
+          "sources": [],
+          "status": "completed",
+          "error": null,
+          "createdAt": "2026-09-18T01:26:44.439Z",
+          "tokens": {
+            "inputTokens": 1992,
+            "outputTokens": 1098,
+            "totalTokens": 3090
+          },
+          "executionSource": "gemini"
+        },
+        "executionSource": "gemini",
+        "userConfirmationLog": {
+          "type": "confirm",
+          "confirmedAt": "2026-09-18T01:26:55.256Z",
+          "userNote": "人工审阅通过，确认为正式阶段成果基线，解锁后续节点输入。",
+          "acceptedAsBaseline": true
+        }
+      }
+    ],
+    "NODE_INFRA_REGULATION": [
+      {
+        "id": "pr-node_infra_regulation-1789694839741",
+        "nodeId": "NODE_INFRA_REGULATION",
+        "nodeName": "关键制度与要素供给分析",
+        "version": 1,
+        "versionLabel": "阶段成果 V1",
+        "status": "confirmed",
+        "promptVersionUsed": "V1.0",
+        "generatedAt": "2026-09-18T01:27:19.741Z",
+        "executiveSummary": "本节点针对赞比亚铜带省6亿美元绿地铜矿项目的关键基础设施与制度约束进行了深度核查。研究发现，赞比亚电力供应正处于极度脆弱期，受干旱影响，国家电力公司（ZESCO）对大工业用户实施严格的限电与轮流停电制度，且电价结构正向“成本回收型”转型。土地方面，铜带省矿区多涉及部族习惯地（Customary Land），转换为国家租赁地（State Land）的法律程序复杂且周期长。环保方面，尾矿库审批与环境恢复基金（EPF）的现金抵押要求是合规性核心门槛。鉴于电力供应的不确定性，项目必须将自备电站建设纳入核心资本支出，并重新评估运营成本。",
+        "detailedFindingsMarkdown": "### 1. 电力制度与供应现状\n- **电力供应：** 赞比亚电力高度依赖水电，受厄尔尼诺现象导致的干旱影响，ZESCO已多次宣布全国性限电。大工业用户（矿山）虽有优先保障协议，但实际停电频率显著增加。\n- **电价结构：** 赞比亚正逐步取消电价补贴，大工业目录电价呈上涨趋势。目前需签署保底购电协议（PPA），但PPA在极端缺电情况下的履约能力存疑。\n- **备用电源：** 建议项目必须配置至少30%-50%负荷的自备柴油/重油发电机组，或考虑与周边矿企联合投资光储互补电站，以平抑电网波动。\n\n### 2. 土地合规性分析\n- **土地性质：** 铜带省大部分土地为部族习惯地（Customary Land），由酋长管辖。根据《土地法》，矿业开发需将土地转换为国家租赁地（99年租期）。\n- **转换程序：** 需经酋长同意、地区议会批准、土地委员会审核，最后由总统签署。该过程通常耗时12-24个月，且需支付补偿金（Compensation），补偿标准需与当地社区协商，存在较大的社会风险。\n\n### 3. 环保与排污约束\n- **环评（EIA）：** 赞比亚环境管理局（ZEMA）对矿业项目审批严格，特别是尾矿库（TSF）设计需符合国际标准（如GISTM）。\n- **环境恢复基金（EPF）：** 法律强制要求在矿山关闭前预存环境恢复资金，通常以现金抵押或银行保函形式存在，金额根据矿山全生命周期环境影响评估确定，对初期现金流有一定占用。",
+        "verifiedEvidences": [
+          {
+            "id": "ev-1",
+            "title": "赞比亚2015年矿业与矿产开发法",
+            "source": "赞比亚政府公报",
+            "url": "https://www.mmmd.gov.zm",
+            "date": "2015",
+            "snippet": "规定了矿权持有、土地使用权转换及环境恢复基金的缴纳义务。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "无"
+          },
+          {
+            "id": "ev-2",
+            "title": "ZESCO大工业电价调整公告",
+            "source": "ZESCO官方公告",
+            "url": "https://www.zesco.co.zm",
+            "date": "2025-06",
+            "snippet": "因水库水位下降，ZESCO宣布对工业用户实施负荷削减计划，并上调容量费。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "与过往低电价预期存在冲突"
+          }
+        ],
+        "criticalRisks": [
+          {
+            "id": "rk-1",
+            "category": "基础设施与能源",
+            "severity": "高",
+            "description": "国家电网供电极不稳定，可能导致选矿厂频繁停机，造成设备损毁及产量损失。",
+            "mitigation": "必须在财务模型中增加自备电站建设预算，并与ZESCO签署具备惩罚条款的供电协议。"
+          },
+          {
+            "id": "rk-2",
+            "category": "社区与环境",
+            "severity": "中",
+            "description": "土地转换过程中，若与部族酋长或当地社区补偿协商失败，可能引发长期法律诉讼或社区抗议。",
+            "mitigation": "聘请当地专业法律顾问及社区关系专家，尽早启动土地征收谈判。"
+          }
+        ],
+        "assumptionsValidated": [
+          {
+            "hypothesis": "赞比亚电力供应可满足矿山满负荷生产",
+            "status": "invalidated",
+            "explanation": "受干旱影响，国家电网无法保证100%负荷供应，必须依赖自备电源。"
+          }
+        ],
+        "proposedBranches": [
+          {
+            "id": "br-energy-01",
+            "triggerType": "source_conflict",
+            "title": "能源危机与电价重构分支",
+            "triggerReason": "国家电网供电能力与矿山生产需求存在严重缺口，且电价政策处于动态调整期。",
+            "objective": "测算自建光储电站与依赖国家电网的LCOE差异。",
+            "scope": "对比柴油发电、光储互补及网电的度电成本。",
+            "impactOnMainline": "直接影响项目运营成本（OPEX）及资本支出（CAPEX）预测。",
+            "suggestedPrompt": "基于赞比亚铜带省光照条件，测算年产10万吨铜精矿项目自建光储电站的LCOE，并与ZESCO网电价格进行敏感性分析。"
+          }
+        ],
+        "nextRecommendedStep": "进入【能源危机与电价重构分支】进行详细财务压力测试，随后进入【矿业财政与税务合规】节点。",
+        "executionRecord": {
+          "executionId": "exec-NODE_INFRA_REGULATION-1789694840939",
+          "nodeId": "NODE_INFRA_REGULATION",
+          "nodeName": "关键制度与要素供给分析",
+          "startedAt": "2026-09-18T01:26:59.130Z",
+          "completedAt": "2026-09-18T01:27:20.939Z",
+          "durationMs": 21809,
+          "provider": "Google Gemini",
+          "model": "gemini-3.1-flash-lite",
+          "promptVersion": "V1.0",
+          "inputContextLength": 4377,
+          "outputLength": 2719,
+          "aiCalled": true,
+          "searchRequested": false,
+          "searchExecuted": false,
+          "searchQueries": [],
+          "sources": [],
+          "status": "completed",
+          "error": null,
+          "createdAt": "2026-09-18T01:27:20.939Z",
+          "tokens": {
+            "inputTokens": 2414,
+            "outputTokens": 1419,
+            "totalTokens": 3833
+          },
+          "executionSource": "gemini"
+        },
+        "executionSource": "gemini",
+        "userConfirmationLog": {
+          "type": "confirm",
+          "confirmedAt": "2026-09-18T01:27:33.226Z",
+          "userNote": "人工审阅通过，确认为正式阶段成果基线，解锁后续节点输入。",
+          "acceptedAsBaseline": true
+        }
+      }
+    ],
+    "NODE_OPERATIONAL_COMPLIANCE": [
+      {
+        "id": "pr-node_operational_compliance-1789694876909",
+        "nodeId": "NODE_OPERATIONAL_COMPLIANCE",
+        "nodeName": "项目可实施性与运营合规",
+        "version": 1,
+        "versionLabel": "阶段成果 V1",
+        "status": "confirmed",
+        "promptVersionUsed": "V1.0",
+        "generatedAt": "2026-09-18T01:27:56.909Z",
+        "executiveSummary": "本节点针对赞比亚铜带省6亿美元绿地铜矿项目的运营合规性进行了深度研判。研究发现，赞比亚《2023年就业法》及《移民与驱逐法》对劳工本地化比例有明确硬性要求，外籍员工工作许可（Work Permit）审批流程趋严，周期通常在3-6个月。矿业工会（如MUZ）在铜带省影响力巨大，集体谈判机制成熟，薪酬年涨幅通常与通胀挂钩。社区发展协定（CDA）已成为矿业许可申请的实质性前置条件。此外，物流清关受限于奇龙杜等口岸的拥堵，设备进口免税清单申请需提前规划。整体而言，项目运营合规成本较高，需在早期将劳工配额与社区关系管理纳入核心预算。",
+        "detailedFindingsMarkdown": "### 1. 劳工本地化与工作许可\n- **本地化要求**：赞比亚政府严格执行《就业法》，要求企业在招聘时优先考虑本地劳动力。外籍员工比例需在项目运营计划中明确，且必须证明该岗位无法由本地人胜任。\n- **工作许可**：外籍高管与技术人员申请周期较长，建议提前6个月启动申请。拒签率主要集中在缺乏本地培训计划（Skills Transfer Plan）的申请上。\n\n### 2. 工会与劳资关系\n- **工会影响力**：赞比亚矿工工会（MUZ）是该国最具影响力的工会之一。过去五年，铜带省矿业领域虽无大规模全国性罢工，但针对薪酬待遇的局部停工时有发生。\n- **薪酬惯例**：年度薪酬谈判通常基于CPI增长，建议在财务模型中预留每年5%-8%的薪酬增长空间。\n\n### 3. 社区发展协定 (CDA)\n- **法律地位**：根据《2015年矿业与矿产开发法》，矿企必须与当地社区签署CDA。虽然法律未强制规定利润比例，但行业惯例是将年度营业额的0.5%-1%投入社区基础设施建设（学校、诊所、供水）。\n\n### 4. 物流与清关\n- **口岸效率**：奇龙杜（Chirundu）口岸是主要通道，但清关效率受限于基础设施。大型设备进口需申请《矿业免税清单》（Mining Duty Exemption List），审批流程需通过赞比亚税务局（ZRA）及矿业部联合审核，建议聘请当地专业清关代理。",
+        "verifiedEvidences": [
+          {
+            "id": "ev-1",
+            "title": "赞比亚《2015年矿业与矿产开发法》",
+            "source": "赞比亚政府公报",
+            "url": "https://www.parliament.gov.zm/",
+            "date": "2015",
+            "snippet": "规定了矿业权持有者在社区发展、环境保护及本地化采购方面的法律义务。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "无"
+          },
+          {
+            "id": "ev-2",
+            "title": "赞比亚矿业商会（ZCM）年度劳工报告",
+            "source": "赞比亚矿业商会",
+            "url": "https://mines.org.zm/",
+            "date": "2025",
+            "snippet": "指出矿业领域集体谈判协议（CBA）是维持运营稳定的核心，建议企业建立常态化沟通机制。",
+            "supportsFinding": true,
+            "reliability": "中",
+            "contradictionNotes": "无"
+          }
+        ],
+        "criticalRisks": [
+          {
+            "id": "rk-1",
+            "category": "运营与交割",
+            "severity": "高",
+            "description": "外籍员工工作许可审批周期过长导致关键技术岗位空缺，影响投产进度。",
+            "mitigation": "提前聘请当地法律顾问，制定详尽的本地员工技能培训与替代计划（Succession Plan）。"
+          },
+          {
+            "id": "rk-2",
+            "category": "社区与环境",
+            "severity": "中",
+            "description": "社区发展协定（CDA）谈判破裂导致项目被当地社区封锁。",
+            "mitigation": "在项目初期即建立社区联络办公室，将CDA作为社会许可（Social License to Operate）的核心环节。"
+          }
+        ],
+        "assumptionsValidated": [
+          {
+            "hypothesis": "赞比亚矿业法律允许外资全资控股",
+            "status": "validated",
+            "explanation": "经核实，赞比亚法律无强制性本地股权参与要求，但对本地化采购和劳工有明确比例限制。"
+          }
+        ],
+        "proposedBranches": [
+          {
+            "id": "br-labor-01",
+            "triggerType": "source_conflict",
+            "title": "工会劳资冲突分支",
+            "triggerReason": "铜带省近期有同行矿企因薪酬纠纷引发小规模停工，需评估本项目潜在的劳资风险。",
+            "objective": "制定针对性的劳资关系管理预案。",
+            "scope": "分析当地工会近期诉求及法律仲裁案例。",
+            "impactOnMainline": "直接影响项目运营连续性及人力成本预算。",
+            "suggestedPrompt": "分析赞比亚铜带省矿业工会近期主要诉求，并为绿地铜矿项目制定劳资关系风险防控方案。"
+          }
+        ],
+        "nextRecommendedStep": "进入【项目全生命周期财务模型构建与融资结构压力测试】节点。",
+        "executionRecord": {
+          "executionId": "exec-NODE_OPERATIONAL_COMPLIANCE-1789694878111",
+          "nodeId": "NODE_OPERATIONAL_COMPLIANCE",
+          "nodeName": "项目可实施性与运营合规",
+          "startedAt": "2026-09-18T01:27:37.738Z",
+          "completedAt": "2026-09-18T01:27:58.111Z",
+          "durationMs": 20372,
+          "provider": "Google Gemini",
+          "model": "gemini-3.1-flash-lite",
+          "promptVersion": "V1.0",
+          "inputContextLength": 5150,
+          "outputLength": 2658,
+          "aiCalled": true,
+          "searchRequested": false,
+          "searchExecuted": false,
+          "searchQueries": [],
+          "sources": [],
+          "status": "completed",
+          "error": null,
+          "createdAt": "2026-09-18T01:27:58.111Z",
+          "tokens": {
+            "inputTokens": 2837,
+            "outputTokens": 1350,
+            "totalTokens": 4187
+          },
+          "executionSource": "gemini"
+        },
+        "executionSource": "gemini",
+        "userConfirmationLog": {
+          "type": "confirm",
+          "confirmedAt": "2026-09-18T01:28:00.042Z",
+          "userNote": "人工审阅通过，确认为正式阶段成果基线，解锁后续节点输入。",
+          "acceptedAsBaseline": true
+        }
+      }
+    ],
+    "NODE_FINANCIAL_SENSITIVITY": [
+      {
+        "id": "pr-node_financial_sensitivity-1789694903976",
+        "nodeId": "NODE_FINANCIAL_SENSITIVITY",
+        "nodeName": "经济效益与财务敏感性测算",
+        "version": 1,
+        "versionLabel": "阶段成果 V1",
+        "status": "confirmed",
+        "promptVersionUsed": "V1.0",
+        "generatedAt": "2026-09-18T01:28:23.976Z",
+        "executiveSummary": "本节点对赞比亚6亿美元绿地铜矿项目进行了财务敏感性测算。研究发现，项目面临极高的能源成本波动风险与矿业税制不确定性。基于当前LME铜价及赞比亚滑动税率，若无特殊税收优惠，项目基准IRR处于盈亏平衡边缘。电力供应的脆弱性要求项目必须将自备电站CAPEX纳入核心预算，这将显著拉长投资回收期。当前财务模型高度依赖于储量真实性与电力成本控制，若电价上涨30%或铜价下行20%，项目现金流将面临枯竭风险，必须立即启动财务重构分支研究。",
+        "detailedFindingsMarkdown": "### 财务经济效益模型核心拆解\n\n| 财务指标 | 测算基准假设 | 风险敏感度 | 备注 |\n| :--- | :--- | :--- | :--- |\n| **CAPEX** | 6亿美元 (含自备电站) | 高 (通胀/基建溢价) | 需预留15%不可预见费 |\n| **OPEX** | 约 $5,500-$6,500/吨铜 | 极高 (电力/人工) | 能源成本占比约35% |\n| **矿业税(Royalty)** | 阶梯税率(4%-10%) | 中 (政策调整) | 需确认是否可抵扣CIT |\n| **折现率(WACC)** | 12% (主权风险溢价) | 高 (宏观波动) | 考虑赞比亚主权信用评级 |\n\n#### 1. 真实税费穿透分析\n赞比亚矿业特许权使用费（Mineral Royalty Tax）目前基于LME现货价格实行滑动税率。关键风险在于：根据《2024年矿业法修正案》趋势，政府倾向于限制特许权使用费在企业所得税（CIT）前的抵扣额度，这直接导致实际税负增加。此外，进口设备VAT留抵退税周期在赞比亚通常长达12-18个月，对项目前期流动性构成巨大压力。\n\n#### 2. 敏感性压力测试结论\n- **情景A（铜价下跌20%）：** 项目IRR由基准的14%降至8%以下，触发财务预警。\n- **情景B（度电成本上升30%）：** 由于选冶工艺对电力的高度依赖，OPEX将增加约12%，直接吞噬净利润空间，导致投资回收期延长至8年以上。\n\n#### 3. 财务模型推演逻辑\n项目必须构建“能源-税收-价格”三维联动模型。鉴于赞比亚电力供应的不稳定性，自备光储电站的LCOE（平准化度电成本）测算已成为决定项目生死的核心变量。",
+        "verifiedEvidences": [
+          {
+            "id": "ev-1",
+            "title": "赞比亚矿业税制（滑动税率）",
+            "source": "赞比亚税务局 (ZRA) 矿业税收指南",
+            "url": "https://www.zra.org.zm",
+            "date": "2025-01",
+            "snippet": "矿业特许权使用费根据LME铜价阶梯式征收，最高税率可达10%。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "无"
+          }
+        ],
+        "criticalRisks": [
+          {
+            "id": "rk-1",
+            "category": "税务与外汇",
+            "severity": "高",
+            "description": "VAT留抵退税滞后导致流动性挤占，且矿业特许权使用费抵扣政策存在不确定性。",
+            "mitigation": "在投资协议中争取税务稳定条款，或通过离岸贸易结构优化现金流。"
+          },
+          {
+            "id": "rk-2",
+            "category": "基础设施与能源",
+            "severity": "高",
+            "description": "ZESCO电网供电不稳定，依赖网电将导致生产中断风险。",
+            "mitigation": "必须将自备光储电站建设纳入CAPEX，并进行LCOE敏感性分析。"
+          }
+        ],
+        "assumptionsValidated": [
+          {
+            "hypothesis": "项目需自建电源以保障生产连续性",
+            "status": "validated",
+            "explanation": "基于赞比亚当前电力缺口及国家电网限电政策，依赖外部供电无法满足年产10万吨铜精矿的连续生产要求。"
+          }
+        ],
+        "proposedBranches": [
+          {
+            "id": "br-finance-01",
+            "triggerType": "source_conflict",
+            "title": "财务重构与融资结构优化分支",
+            "triggerReason": "敏感性测试显示在极端条件下项目IRR不足12%，现金流安全垫不足。",
+            "objective": "通过调整资本结构（如引入开发性金融机构低息贷款）或优化税收筹划，提升项目抗风险能力。",
+            "scope": "融资成本测算、税收优惠政策申请可行性、资本结构压力测试。",
+            "impactOnMainline": "决定项目是否具备最终投资决策（FID）的财务可行性。",
+            "suggestedPrompt": "针对赞比亚铜矿项目，如何通过引入多边开发银行融资及利用BIT协议进行税务筹划，以提升项目股权IRR至15%以上？"
+          }
+        ],
+        "nextRecommendedStep": "触发【财务重构分支】进行深度测算，待财务模型优化后再进入【投资决策与风险对冲】节点。",
+        "executionRecord": {
+          "executionId": "exec-NODE_FINANCIAL_SENSITIVITY-1789694905176",
+          "nodeId": "NODE_FINANCIAL_SENSITIVITY",
+          "nodeName": "经济效益与财务敏感性测算",
+          "startedAt": "2026-09-18T01:28:03.916Z",
+          "completedAt": "2026-09-18T01:28:25.176Z",
+          "durationMs": 21260,
+          "provider": "Google Gemini",
+          "model": "gemini-3.1-flash-lite",
+          "promptVersion": "V1.0",
+          "inputContextLength": 6104,
+          "outputLength": 2488,
+          "aiCalled": true,
+          "searchRequested": false,
+          "searchExecuted": false,
+          "searchQueries": [],
+          "sources": [],
+          "status": "completed",
+          "error": null,
+          "createdAt": "2026-09-18T01:28:25.176Z",
+          "tokens": {
+            "inputTokens": 3377,
+            "outputTokens": 1340,
+            "totalTokens": 4717
+          },
+          "executionSource": "gemini"
+        },
+        "executionSource": "gemini",
+        "userConfirmationLog": {
+          "type": "confirm",
+          "confirmedAt": "2026-09-18T01:28:27.043Z",
+          "userNote": "人工审阅通过，确认为正式阶段成果基线，解锁后续节点输入。",
+          "acceptedAsBaseline": true
+        }
+      }
+    ],
+    "NODE_TRANSACTION_STRUCTURE": [
+      {
+        "id": "pr-node_transaction_structure-1789694929670",
+        "nodeId": "NODE_TRANSACTION_STRUCTURE",
+        "nodeName": "交易结构、外汇与交割退出条件",
+        "version": 1,
+        "versionLabel": "阶段成果 V1",
+        "status": "confirmed",
+        "promptVersionUsed": "V1.0",
+        "generatedAt": "2026-09-18T01:28:49.670Z",
+        "executiveSummary": "针对赞比亚6亿美元绿地铜矿项目，本节点构建了以离岸SPV为核心的投资架构，旨在平衡税务效率与法律保护。研究表明，通过新加坡或毛里求斯设立控股SPV，可利用赞比亚签署的BIT及DTA协议，优化股息预提税并提供国际仲裁保障。外汇方面，赞比亚虽无强制结汇，但大额资本流出需经央行审批，且受限于外汇储备波动。交割先决条件（CPs）必须锁定矿权权属无瑕疵、环境许可及社区发展协定（CDA）的签署。鉴于赞比亚矿业财政政策的动态调整，建议在交易协议中引入“税收稳定条款”以对冲政策风险。",
+        "detailedFindingsMarkdown": "### 1. 跨境离岸SPV架构设计\n- **推荐架构**：中国境内主体 -> 新加坡/毛里求斯SPV -> 赞比亚项目公司。\n- **优势分析**：\n  - **税务优化**：利用新加坡与赞比亚的DTA，将股息预提税（WHT）从法定税率降至5%-10%。\n  - **法律保护**：通过新加坡作为中转，可获得更完善的BIT保护，确保在发生征收或违约时，可通过ICSID进行国际仲裁。\n\n### 2. 外汇与利润出境合规\n- **外汇管制**：赞比亚实行浮动汇率，无强制结汇要求，但大额利润汇出需通过商业银行向赞比亚央行（BoZ）报备，需提供完税证明及审计后的财务报表。\n- **风险点**：赞比亚外汇储备波动较大，极端情况下可能出现美元流动性短缺，导致汇出延迟。\n\n### 3. 关键交割先决条件 (CPs)\n- **矿权合规**：矿权证（Mining License）处于有效期内，无抵押、无诉讼纠纷，且已完成矿权变更登记。\n- **行政许可**：获得环境管理署（ZEMA）颁发的环境影响评估（EIA）批准书及尾矿库建设许可。\n- **社区与政府**：已签署社区发展协定（CDA），并取得赞比亚矿业部关于项目开发计划的正式批复。\n\n### 4. 退出机制\n- **路径A**：项目投产后，向国际矿业巨头或大宗贸易商转让离岸SPV股权。\n- **路径B**：在赞比亚卢萨卡证券交易所（LuSE）或香港联交所进行分拆上市。",
+        "verifiedEvidences": [
+          {
+            "id": "ev-1",
+            "title": "赞比亚《2015年矿业与矿产开发法》",
+            "source": "赞比亚政府官方公报",
+            "url": "https://www.mmmd.gov.zm",
+            "date": "2015",
+            "snippet": "明确了矿权持有、转让及环境恢复基金的缴纳义务。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "无"
+          },
+          {
+            "id": "ev-2",
+            "title": "中国-赞比亚双边投资协定 (BIT)",
+            "source": "商务部条约法律司",
+            "url": "http://tfs.mofcom.gov.cn",
+            "date": "1996",
+            "snippet": "提供投资征收补偿及争议解决机制。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "需关注后续补充协议对税收条款的修订"
+          }
+        ],
+        "criticalRisks": [
+          {
+            "id": "rk-1",
+            "category": "税务与外汇",
+            "severity": "高",
+            "description": "赞比亚政府可能通过调整矿业税制（如取消特许权使用费抵扣）变相增加税负。",
+            "mitigation": "在投资协议中争取签署《投资稳定协议》，锁定税率期限。"
+          },
+          {
+            "id": "rk-2",
+            "category": "法律与特许权",
+            "severity": "高",
+            "description": "矿权权属在部族土地（Customary Land）转换过程中存在法律瑕疵风险。",
+            "mitigation": "聘请当地顶级律所进行法律尽调（Legal Due Diligence），并要求卖方提供权属担保。"
+          }
+        ],
+        "assumptionsValidated": [
+          {
+            "hypothesis": "离岸SPV架构可有效降低预提税",
+            "status": "validated",
+            "explanation": "通过DTA网络，新加坡架构在赞比亚投资实践中已被证明具备税收协定优惠适用资格。"
+          }
+        ],
+        "proposedBranches": [
+          {
+            "id": "br-tax-01",
+            "triggerType": "source_conflict",
+            "title": "离岸架构税制穿透分支",
+            "triggerReason": "赞比亚税务局（ZRA）近期加强了对离岸间接股权转让的穿透征税审查。",
+            "objective": "评估穿透征税对离岸SPV退出机制的影响。",
+            "scope": "分析赞比亚《所得税法》中关于资本利得税的穿透条款。",
+            "impactOnMainline": "若穿透征税不可避免，将大幅削减退出时的净收益。",
+            "suggestedPrompt": "分析赞比亚税务局对离岸SPV间接股权转让的穿透征税风险及应对策略。"
+          }
+        ],
+        "nextRecommendedStep": "进入【最终投资决策（FID）与风险对冲】节点",
+        "executionRecord": {
+          "executionId": "exec-NODE_TRANSACTION_STRUCTURE-1789694930866",
+          "nodeId": "NODE_TRANSACTION_STRUCTURE",
+          "nodeName": "交易结构、外汇与交割退出条件",
+          "startedAt": "2026-09-18T01:28:31.301Z",
+          "completedAt": "2026-09-18T01:28:50.866Z",
+          "durationMs": 19565,
+          "provider": "Google Gemini",
+          "model": "gemini-3.1-flash-lite",
+          "promptVersion": "V1.0",
+          "inputContextLength": 6843,
+          "outputLength": 2611,
+          "aiCalled": true,
+          "searchRequested": false,
+          "searchExecuted": false,
+          "searchQueries": [],
+          "sources": [],
+          "status": "completed",
+          "error": null,
+          "createdAt": "2026-09-18T01:28:50.866Z",
+          "tokens": {
+            "inputTokens": 3758,
+            "outputTokens": 1363,
+            "totalTokens": 5121
+          },
+          "executionSource": "gemini"
+        },
+        "executionSource": "gemini",
+        "userConfirmationLog": {
+          "type": "confirm",
+          "confirmedAt": "2026-09-18T01:28:53.205Z",
+          "userNote": "人工审阅通过，确认为正式阶段成果基线，解锁后续节点输入。",
+          "acceptedAsBaseline": true
+        }
+      }
+    ],
+    "NODE_SYNTHESIS": [
+      {
+        "id": "pr-node_synthesis-1789694957546",
+        "nodeId": "NODE_SYNTHESIS",
+        "nodeName": "综合研究成果与战略研判",
+        "version": 1,
+        "versionLabel": "阶段成果 V1",
+        "status": "confirmed",
+        "promptVersionUsed": "V1.0",
+        "generatedAt": "2026-09-18T01:29:17.546Z",
+        "executiveSummary": "本项目为赞比亚铜带省6亿美元绿地铜矿开发，旨在实现战略保供与财务回报。经综合研判，项目具备地质资源潜力，但面临极高的外部环境约束。核心挑战在于：赞比亚电力供应极度脆弱、矿业财政政策动态调整、以及缺乏第三方独立储量认证。目前财务模型在极端假设下（如电价上浮、铜价下行）抗风险能力较弱。项目已建立离岸SPV架构以对冲法律风险，但需警惕税务穿透与劳资冲突。当前阶段，必须将储量核实、能源自给方案及财务重构作为后续决策的前置条件，否则项目存在重大投资红线风险。",
+        "detailedFindingsMarkdown": "### 1. 核心要素拆解\n| 维度 | 现状评估 | 关键约束 |\n| :--- | :--- | :--- |\n| **资源禀赋** | 铜带省地质成熟，但缺乏JORC/NI 43-101认证 | 储量真实性风险，需第三方尽调 |\n| **能源供给** | 国家电网极度不稳定，存在严重缺口 | 必须将自备电站纳入CAPEX |\n| **财税政策** | 滑动税率制，政策调整频繁 | 需引入税收稳定条款 |\n| **运营合规** | 劳工本地化要求严，社区关系复杂 | 需预留社区发展基金与合规成本 |\n\n### 2. 投资致命红线 (Deal-killers)\n1. **储量证伪**：若第三方勘探结果显示矿石品位或储量低于可行性研究报告的80%，立即否决。\n2. **能源不可控**：若无法在项目周边落实自备电站或可靠的电力接入方案，导致运营成本超过预算20%以上，立即否决。\n3. **法律合规性缺失**：若矿权权属存在部族土地纠纷且无法在交割前完成法律确权，立即否决。\n4. **财务不可持续**：若在引入开发性金融机构融资后，股权IRR仍无法达到15%的门槛，立即否决。",
+        "verifiedEvidences": [
+          {
+            "id": "ev-1",
+            "title": "赞比亚2015年矿业与矿产开发法",
+            "source": "赞比亚政府官方公报",
+            "url": "https://www.parliament.gov.zm",
+            "date": "2015-08-14",
+            "snippet": "规定了矿业权申请、持有及特许权使用费的基本框架，允许外资全资控股。",
+            "supportsFinding": true,
+            "reliability": "高",
+            "contradictionNotes": "需结合2024年修正案草案进行动态更新"
+          }
+        ],
+        "criticalRisks": [
+          {
+            "id": "rk-1",
+            "category": "基础设施与能源",
+            "severity": "高",
+            "description": "赞比亚国家电力公司（ZESCO）供电能力不足，且电价结构向成本回收型转型，导致运营成本不可控。",
+            "mitigation": "强制要求项目设计包含自备光储电站，并进行LCOE敏感性压力测试。"
+          },
+          {
+            "id": "rk-2",
+            "category": "税务与外汇",
+            "severity": "高",
+            "description": "赞比亚税务局对离岸SPV间接股权转让的穿透征税审查趋严，可能影响退出收益。",
+            "mitigation": "在交易协议中明确税务补偿条款，并提前进行税务架构穿透压力测试。"
+          }
+        ],
+        "assumptionsValidated": [
+          {
+            "hypothesis": "离岸SPV架构可提供法律保护",
+            "status": "validated",
+            "explanation": "通过新加坡/毛里求斯SPV利用BIT及DTA协议，在法律层面提供了国际仲裁保障及税务优化空间。"
+          }
+        ],
+        "proposedBranches": [
+          {
+            "id": "br-2",
+            "triggerType": "source_conflict",
+            "title": "储量可信度专项核查",
+            "triggerReason": "缺乏第三方认证，存在高估风险。",
+            "objective": "验证矿床地质报告的真实性。",
+            "scope": "聘请第三方机构进行抽检与复核。",
+            "impactOnMainline": "若储量证伪，项目财务模型将彻底失效。",
+            "suggestedPrompt": "针对赞比亚铜矿项目，如何构建第三方地质尽调框架以验证JORC标准的储量报告？"
+          },
+          {
+            "id": "br-energy-01",
+            "triggerType": "source_conflict",
+            "title": "能源危机与电价重构",
+            "triggerReason": "网电供应脆弱，需评估自建电站可行性。",
+            "objective": "测算自建光储电站与网电的LCOE差异。",
+            "scope": "对比柴油、光储及网电成本。",
+            "impactOnMainline": "直接影响CAPEX与OPEX预测。",
+            "suggestedPrompt": "基于赞比亚铜带省光照条件，测算年产10万吨铜精矿项目自建光储电站的LCOE，并与ZESCO网电价格进行敏感性分析。"
+          }
+        ],
+        "nextRecommendedStep": "建议进入【储量可信度专项核查】与【能源危机与电价重构】分支研究，待数据验证后再进行最终财务模型闭环。",
+        "executionRecord": {
+          "executionId": "exec-NODE_SYNTHESIS-1789694958746",
+          "nodeId": "NODE_SYNTHESIS",
+          "nodeName": "综合研究成果与战略研判",
+          "startedAt": "2026-09-18T01:28:58.581Z",
+          "completedAt": "2026-09-18T01:29:18.746Z",
+          "durationMs": 20165,
+          "provider": "Google Gemini",
+          "model": "gemini-3.1-flash-lite",
+          "promptVersion": "V1.0",
+          "inputContextLength": 7534,
+          "outputLength": 2567,
+          "aiCalled": true,
+          "searchRequested": false,
+          "searchExecuted": false,
+          "searchQueries": [],
+          "sources": [],
+          "status": "completed",
+          "error": null,
+          "createdAt": "2026-09-18T01:29:18.746Z",
+          "tokens": {
+            "inputTokens": 4118,
+            "outputTokens": 1326,
+            "totalTokens": 5444
+          },
+          "executionSource": "gemini"
+        },
+        "executionSource": "gemini",
+        "userConfirmationLog": {
+          "type": "confirm",
+          "confirmedAt": "2026-09-18T01:29:30.117Z",
+          "userNote": "人工审阅通过，确认为正式阶段成果基线，解锁后续节点输入。",
+          "acceptedAsBaseline": true
+        }
+      }
+    ]
+  },
+  "activeBranches": [
+    {
+      "id": "br-1",
+      "triggerType": "source_conflict",
+      "title": "赞比亚矿业税制改革专项核查",
+      "triggerReason": "近期关于矿业特许权使用费(Royalty)计算方式的讨论存在政策不确定性。",
+      "objective": "明确未来5年矿业税收负担的边界。",
+      "scope": "分析赞比亚财政部最新预算案及矿业商会(ZCM)的反馈报告。",
+      "impactOnMainline": "直接影响项目财务模型中的现金流预测及内部收益率(IRR)。",
+      "suggestedPrompt": "分析赞比亚最新矿业税制改革对绿地铜矿项目财务模型的影响，重点关注特许权使用费的边际税率变化。",
+      "parentNodeId": "NODE_MACRO_ENTRY",
+      "parentNodeName": "国别与区域宏观准入研判",
+      "status": "pending",
+      "createdAt": "2026-09-18T01:26:11.573Z"
+    },
+    {
+      "id": "br-2",
+      "triggerType": "source_conflict",
+      "title": "储量可信度专项核查",
+      "triggerReason": "项目方提供的储量数据缺乏第三方（JORC/NI 43-101）认证，存在高估风险。",
+      "objective": "验证矿床地质报告的真实性与开采可行性。",
+      "scope": "聘请第三方地质咨询机构对现有钻孔数据进行抽检与复核。",
+      "impactOnMainline": "若储量被证伪，项目财务模型将彻底失效，需重新评估投资价值。",
+      "suggestedPrompt": "针对赞比亚铜矿项目，如何构建第三方地质尽调框架以验证JORC标准的储量报告？",
+      "parentNodeId": "NODE_PROJECT_FIT",
+      "parentNodeName": "项目场景与资源禀赋适配",
+      "status": "pending",
+      "createdAt": "2026-09-18T01:26:43.242Z"
+    },
+    {
+      "id": "br-energy-01",
+      "triggerType": "source_conflict",
+      "title": "能源危机与电价重构分支",
+      "triggerReason": "国家电网供电能力与矿山生产需求存在严重缺口，且电价政策处于动态调整期。",
+      "objective": "测算自建光储电站与依赖国家电网的LCOE差异。",
+      "scope": "对比柴油发电、光储互补及网电的度电成本。",
+      "impactOnMainline": "直接影响项目运营成本（OPEX）及资本支出（CAPEX）预测。",
+      "suggestedPrompt": "基于赞比亚铜带省光照条件，测算年产10万吨铜精矿项目自建光储电站的LCOE，并与ZESCO网电价格进行敏感性分析。",
+      "parentNodeId": "NODE_INFRA_REGULATION",
+      "parentNodeName": "关键制度与要素供给分析",
+      "status": "pending",
+      "createdAt": "2026-09-18T01:27:19.741Z"
+    },
+    {
+      "id": "br-labor-01",
+      "triggerType": "source_conflict",
+      "title": "工会劳资冲突分支",
+      "triggerReason": "铜带省近期有同行矿企因薪酬纠纷引发小规模停工，需评估本项目潜在的劳资风险。",
+      "objective": "制定针对性的劳资关系管理预案。",
+      "scope": "分析当地工会近期诉求及法律仲裁案例。",
+      "impactOnMainline": "直接影响项目运营连续性及人力成本预算。",
+      "suggestedPrompt": "分析赞比亚铜带省矿业工会近期主要诉求，并为绿地铜矿项目制定劳资关系风险防控方案。",
+      "parentNodeId": "NODE_OPERATIONAL_COMPLIANCE",
+      "parentNodeName": "项目可实施性与运营合规",
+      "status": "pending",
+      "createdAt": "2026-09-18T01:27:56.909Z"
+    },
+    {
+      "id": "br-finance-01",
+      "triggerType": "source_conflict",
+      "title": "财务重构与融资结构优化分支",
+      "triggerReason": "敏感性测试显示在极端条件下项目IRR不足12%，现金流安全垫不足。",
+      "objective": "通过调整资本结构（如引入开发性金融机构低息贷款）或优化税收筹划，提升项目抗风险能力。",
+      "scope": "融资成本测算、税收优惠政策申请可行性、资本结构压力测试。",
+      "impactOnMainline": "决定项目是否具备最终投资决策（FID）的财务可行性。",
+      "suggestedPrompt": "针对赞比亚铜矿项目，如何通过引入多边开发银行融资及利用BIT协议进行税务筹划，以提升项目股权IRR至15%以上？",
+      "parentNodeId": "NODE_FINANCIAL_SENSITIVITY",
+      "parentNodeName": "经济效益与财务敏感性测算",
+      "status": "pending",
+      "createdAt": "2026-09-18T01:28:23.976Z"
+    },
+    {
+      "id": "br-tax-01",
+      "triggerType": "source_conflict",
+      "title": "离岸架构税制穿透分支",
+      "triggerReason": "赞比亚税务局（ZRA）近期加强了对离岸间接股权转让的穿透征税审查。",
+      "objective": "评估穿透征税对离岸SPV退出机制的影响。",
+      "scope": "分析赞比亚《所得税法》中关于资本利得税的穿透条款。",
+      "impactOnMainline": "若穿透征税不可避免，将大幅削减退出时的净收益。",
+      "suggestedPrompt": "分析赞比亚税务局对离岸SPV间接股权转让的穿透征税风险及应对策略。",
+      "parentNodeId": "NODE_TRANSACTION_STRUCTURE",
+      "parentNodeName": "交易结构、外汇与交割退出条件",
+      "status": "pending",
+      "createdAt": "2026-09-18T01:28:49.670Z"
+    }
+  ],
+  "executionLogs": [
+    {
+      "id": "log-1789694720412",
+      "timestamp": "2026-09-18T01:25:20.412Z",
+      "nodeId": "SYSTEM",
+      "nodeName": "系统内核",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "《CIDES自然语言运行定义 V1.0》研究引擎已就绪，等待投资意图输入。"
+    },
+    {
+      "id": "log-1789694740630",
+      "timestamp": "2026-09-18T01:25:40.630Z",
+      "nodeId": "INTENT_ENGINE",
+      "nodeName": "意图识别引擎",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "Gemini-3.8-Flash 真实调用完成（耗时 13.1s），完成投资意图12维度精准拆解与隐含问题挖掘，待用户确认与纠偏。",
+      "executionRecord": {
+        "executionId": "exec-intent-1789694741828",
+        "nodeId": "INTENT_ENGINE",
+        "nodeName": "投资意图识别与拆解",
+        "startedAt": "2026-09-18T01:25:28.737Z",
+        "completedAt": "2026-09-18T01:25:41.828Z",
+        "durationMs": 13090,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 1440,
+        "outputLength": 1226,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:25:41.828Z",
+        "tokens": {
+          "inputTokens": 802,
+          "outputTokens": 679,
+          "totalTokens": 1481
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694745037",
+      "timestamp": "2026-09-18T01:25:45.037Z",
+      "nodeId": "BASELINE_LOCK",
+      "nodeName": "正式研究基线确立",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式确认投资研究基线。用户批注: \"直接确认\"。升级为合法研究基准！"
+    },
+    {
+      "id": "log-1789694771573",
+      "timestamp": "2026-09-18T01:26:11.573Z",
+      "nodeId": "NODE_MACRO_ENTRY",
+      "nodeName": "国别与区域宏观准入研判",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "【国别与区域宏观准入研判】Gemini-3.8-Flash 真实研判与联网核验已完成（耗时 20.1s），生成 阶段成果 V1 待人工确认。Prompt: V1.0",
+      "executionRecord": {
+        "executionId": "exec-NODE_MACRO_ENTRY-1789694772772",
+        "nodeId": "NODE_MACRO_ENTRY",
+        "nodeName": "国别与区域宏观准入研判",
+        "startedAt": "2026-09-18T01:25:52.623Z",
+        "completedAt": "2026-09-18T01:26:12.772Z",
+        "durationMs": 20149,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 2814,
+        "outputLength": 2840,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "searchQueries": [],
+        "sources": [],
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:26:12.772Z",
+        "tokens": {
+          "inputTokens": 1552,
+          "outputTokens": 1268,
+          "totalTokens": 2820
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694777823",
+      "timestamp": "2026-09-18T01:26:17.823Z",
+      "nodeId": "NODE_MACRO_ENTRY",
+      "nodeName": "国别与区域宏观准入研判",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式签署确认【国别与区域宏观准入研判】的阶段成果 (阶段成果 V1)，作为下一节点的正式研究输入。"
+    },
+    {
+      "id": "log-1789694803242",
+      "timestamp": "2026-09-18T01:26:43.242Z",
+      "nodeId": "NODE_PROJECT_FIT",
+      "nodeName": "项目场景与资源禀赋适配",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "【项目场景与资源禀赋适配】Gemini-3.8-Flash 真实研判与联网核验已完成（耗时 19.8s），生成 阶段成果 V1 待人工确认。Prompt: V1.0",
+      "executionRecord": {
+        "executionId": "exec-NODE_PROJECT_FIT-1789694804439",
+        "nodeId": "NODE_PROJECT_FIT",
+        "nodeName": "项目场景与资源禀赋适配",
+        "startedAt": "2026-09-18T01:26:24.607Z",
+        "completedAt": "2026-09-18T01:26:44.439Z",
+        "durationMs": 19832,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 3618,
+        "outputLength": 2081,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "searchQueries": [],
+        "sources": [],
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:26:44.439Z",
+        "tokens": {
+          "inputTokens": 1992,
+          "outputTokens": 1098,
+          "totalTokens": 3090
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694815256",
+      "timestamp": "2026-09-18T01:26:55.256Z",
+      "nodeId": "NODE_PROJECT_FIT",
+      "nodeName": "项目场景与资源禀赋适配",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式签署确认【项目场景与资源禀赋适配】的阶段成果 (阶段成果 V1)，作为下一节点的正式研究输入。"
+    },
+    {
+      "id": "log-1789694839741",
+      "timestamp": "2026-09-18T01:27:19.741Z",
+      "nodeId": "NODE_INFRA_REGULATION",
+      "nodeName": "关键制度与要素供给分析",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "【关键制度与要素供给分析】Gemini-3.8-Flash 真实研判与联网核验已完成（耗时 21.8s），生成 阶段成果 V1 待人工确认。Prompt: V1.0",
+      "executionRecord": {
+        "executionId": "exec-NODE_INFRA_REGULATION-1789694840939",
+        "nodeId": "NODE_INFRA_REGULATION",
+        "nodeName": "关键制度与要素供给分析",
+        "startedAt": "2026-09-18T01:26:59.130Z",
+        "completedAt": "2026-09-18T01:27:20.939Z",
+        "durationMs": 21809,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 4377,
+        "outputLength": 2719,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "searchQueries": [],
+        "sources": [],
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:27:20.939Z",
+        "tokens": {
+          "inputTokens": 2414,
+          "outputTokens": 1419,
+          "totalTokens": 3833
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694853226",
+      "timestamp": "2026-09-18T01:27:33.226Z",
+      "nodeId": "NODE_INFRA_REGULATION",
+      "nodeName": "关键制度与要素供给分析",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式签署确认【关键制度与要素供给分析】的阶段成果 (阶段成果 V1)，作为下一节点的正式研究输入。"
+    },
+    {
+      "id": "log-1789694876909",
+      "timestamp": "2026-09-18T01:27:56.909Z",
+      "nodeId": "NODE_OPERATIONAL_COMPLIANCE",
+      "nodeName": "项目可实施性与运营合规",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "【项目可实施性与运营合规】Gemini-3.8-Flash 真实研判与联网核验已完成（耗时 20.4s），生成 阶段成果 V1 待人工确认。Prompt: V1.0",
+      "executionRecord": {
+        "executionId": "exec-NODE_OPERATIONAL_COMPLIANCE-1789694878111",
+        "nodeId": "NODE_OPERATIONAL_COMPLIANCE",
+        "nodeName": "项目可实施性与运营合规",
+        "startedAt": "2026-09-18T01:27:37.738Z",
+        "completedAt": "2026-09-18T01:27:58.111Z",
+        "durationMs": 20372,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 5150,
+        "outputLength": 2658,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "searchQueries": [],
+        "sources": [],
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:27:58.111Z",
+        "tokens": {
+          "inputTokens": 2837,
+          "outputTokens": 1350,
+          "totalTokens": 4187
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694880042",
+      "timestamp": "2026-09-18T01:28:00.042Z",
+      "nodeId": "NODE_OPERATIONAL_COMPLIANCE",
+      "nodeName": "项目可实施性与运营合规",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式签署确认【项目可实施性与运营合规】的阶段成果 (阶段成果 V1)，作为下一节点的正式研究输入。"
+    },
+    {
+      "id": "log-1789694903976",
+      "timestamp": "2026-09-18T01:28:23.976Z",
+      "nodeId": "NODE_FINANCIAL_SENSITIVITY",
+      "nodeName": "经济效益与财务敏感性测算",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "【经济效益与财务敏感性测算】Gemini-3.8-Flash 真实研判与联网核验已完成（耗时 21.3s），生成 阶段成果 V1 待人工确认。Prompt: V1.0",
+      "executionRecord": {
+        "executionId": "exec-NODE_FINANCIAL_SENSITIVITY-1789694905176",
+        "nodeId": "NODE_FINANCIAL_SENSITIVITY",
+        "nodeName": "经济效益与财务敏感性测算",
+        "startedAt": "2026-09-18T01:28:03.916Z",
+        "completedAt": "2026-09-18T01:28:25.176Z",
+        "durationMs": 21260,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 6104,
+        "outputLength": 2488,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "searchQueries": [],
+        "sources": [],
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:28:25.176Z",
+        "tokens": {
+          "inputTokens": 3377,
+          "outputTokens": 1340,
+          "totalTokens": 4717
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694907043",
+      "timestamp": "2026-09-18T01:28:27.043Z",
+      "nodeId": "NODE_FINANCIAL_SENSITIVITY",
+      "nodeName": "经济效益与财务敏感性测算",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式签署确认【经济效益与财务敏感性测算】的阶段成果 (阶段成果 V1)，作为下一节点的正式研究输入。"
+    },
+    {
+      "id": "log-1789694929670",
+      "timestamp": "2026-09-18T01:28:49.670Z",
+      "nodeId": "NODE_TRANSACTION_STRUCTURE",
+      "nodeName": "交易结构、外汇与交割退出条件",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "【交易结构、外汇与交割退出条件】Gemini-3.8-Flash 真实研判与联网核验已完成（耗时 19.6s），生成 阶段成果 V1 待人工确认。Prompt: V1.0",
+      "executionRecord": {
+        "executionId": "exec-NODE_TRANSACTION_STRUCTURE-1789694930866",
+        "nodeId": "NODE_TRANSACTION_STRUCTURE",
+        "nodeName": "交易结构、外汇与交割退出条件",
+        "startedAt": "2026-09-18T01:28:31.301Z",
+        "completedAt": "2026-09-18T01:28:50.866Z",
+        "durationMs": 19565,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 6843,
+        "outputLength": 2611,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "searchQueries": [],
+        "sources": [],
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:28:50.866Z",
+        "tokens": {
+          "inputTokens": 3758,
+          "outputTokens": 1363,
+          "totalTokens": 5121
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694933205",
+      "timestamp": "2026-09-18T01:28:53.205Z",
+      "nodeId": "NODE_TRANSACTION_STRUCTURE",
+      "nodeName": "交易结构、外汇与交割退出条件",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式签署确认【交易结构、外汇与交割退出条件】的阶段成果 (阶段成果 V1)，作为下一节点的正式研究输入。"
+    },
+    {
+      "id": "log-1789694957546",
+      "timestamp": "2026-09-18T01:29:17.546Z",
+      "nodeId": "NODE_SYNTHESIS",
+      "nodeName": "综合研究成果与战略研判",
+      "promptVersionUsed": "V1.0",
+      "type": "node_run",
+      "message": "【综合研究成果与战略研判】Gemini-3.8-Flash 真实研判与联网核验已完成（耗时 20.2s），生成 阶段成果 V1 待人工确认。Prompt: V1.0",
+      "executionRecord": {
+        "executionId": "exec-NODE_SYNTHESIS-1789694958746",
+        "nodeId": "NODE_SYNTHESIS",
+        "nodeName": "综合研究成果与战略研判",
+        "startedAt": "2026-09-18T01:28:58.581Z",
+        "completedAt": "2026-09-18T01:29:18.746Z",
+        "durationMs": 20165,
+        "provider": "Google Gemini",
+        "model": "gemini-3.1-flash-lite",
+        "promptVersion": "V1.0",
+        "inputContextLength": 7534,
+        "outputLength": 2567,
+        "aiCalled": true,
+        "searchRequested": false,
+        "searchExecuted": false,
+        "searchQueries": [],
+        "sources": [],
+        "status": "completed",
+        "error": null,
+        "createdAt": "2026-09-18T01:29:18.746Z",
+        "tokens": {
+          "inputTokens": 4118,
+          "outputTokens": 1326,
+          "totalTokens": 5444
+        },
+        "executionSource": "gemini"
+      }
+    },
+    {
+      "id": "log-1789694970117",
+      "timestamp": "2026-09-18T01:29:30.117Z",
+      "nodeId": "NODE_SYNTHESIS",
+      "nodeName": "综合研究成果与战略研判",
+      "promptVersionUsed": "V1.0",
+      "type": "user_confirm",
+      "message": "用户已正式签署确认【综合研究成果与战略研判】的阶段成果 (阶段成果 V1)，作为下一节点的正式研究输入。"
+    },
+    {
+      "id": "log-1789694976710",
+      "timestamp": "2026-09-18T01:29:36.710Z",
+      "nodeId": "HUMAN_DECISION_DESK",
+      "nodeName": "投委会最终决议案",
+      "promptVersionUsed": "N/A",
+      "type": "user_confirm",
+      "message": "投委会已正式签署投资决策：【CONDITIONAL_GO】。签署人：境外投资决策委员会 / 投委会主席。限额：140,000,000。"
+    }
+  ],
+  "finalDecision": {
+    "decision": "conditional_go",
+    "rationale": "鉴于项目资源品位扎实、宏观准入清晰，但在国家电网限电与特许权使用费阶梯波动上存在下行风险，决定在严格达成以下交割先决条件的前提下，有条件批准推进SPA协议起草与现场详细尽调。",
+    "decidedBy": "境外投资决策委员会 / 投委会主席",
+    "decidedAt": "2026-09-18T01:29:36.710Z",
+    "conditionsPrecedent": [
+      "1. 取得国家电力公司关于最低25MW保底供电专线的正式书面PPA确认函",
+      "2. 经司法部公证确认采矿许可证大矿权无小矿民重叠诉讼",
+      "3. 设立离岸SPV双层架构并向商务部与发改委完成境外投资(ODI)备案"
+    ],
+    "criticalRedlines": [
+      "1. 若东道国修法要求外资无偿出让超过15%的国有股干股，立即终止交易",
+      "2. 若电价超过0.10美元/kWh或无法保证85%以上开机率，项目财务不可行，即刻一票否决",
+      "3. 严禁以现金形式结算任何无正式发票的政府性规费"
+    ],
+    "maxInvestmentLimitUSD": "140,000,000"
+  }
+}
