@@ -32,6 +32,7 @@ import {
   ProjectThread,
 } from "../types/cides";
 import { exportCurrentNodeMarkdown } from "../utils/exportReports";
+import { useTheme } from "../context/ThemeContext";
 
 interface NodeResearchViewProps {
   node: ResearchNodeDefinition;
@@ -52,10 +53,12 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
   onThreadUpdate,
   onNavigateToNextNode,
 }) => {
+  const { isTraditional } = useTheme();
   const [activeTab, setActiveTab] = useState<"findings" | "evidence" | "risks" | "branches" | "spec">("findings");
   const [isExecuting, setIsExecuting] = useState(false);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [correctionInput, setCorrectionInput] = useState("");
+  const [correctionError, setCorrectionError] = useState<string | null>(null);
   const [showCorrectionDialog, setShowCorrectionDialog] = useState(false);
   const [errorInfo, setErrorInfo] = useState<{ status: string; code: string; message: string } | null>(null);
   const [selectedVersionIndex, setSelectedVersionIndex] = useState<number | null>(null);
@@ -287,28 +290,41 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
   // Handle User Correction (Section 14)
   const handleSubmitCorrection = () => {
     if (!correctionInput.trim()) {
-      alert("请填写具体的纠偏依据或补充要求！");
+      setCorrectionError("请填写具体的纠偏依据或补充要求！");
       return;
     }
+    setCorrectionError(null);
     handleExecuteNode(true, correctionInput.trim());
   };
 
   return (
     <div className="space-y-5">
       {/* Node Header Card */}
-      <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 shadow-sm space-y-4">
+      <div className={`p-5 rounded-2xl border space-y-4 transition-colors ${
+        isTraditional
+          ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+          : "bg-slate-900 border-slate-800 text-slate-100 shadow-sm"
+      }`}>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <span className={`px-2 py-0.5 rounded text-xs font-mono font-bold border ${
+                isTraditional
+                  ? "bg-blue-50 text-blue-700 border-blue-200"
+                  : "bg-amber-500/10 text-amber-400 border-amber-500/20"
+              }`}>
                 环节 {nodeIndex + 1}
               </span>
-              <h2 className="text-lg font-bold text-slate-100">{node.name}</h2>
-              <span className="px-2 py-0.5 rounded-full text-[11px] font-mono bg-slate-800 text-slate-300 border border-slate-700">
+              <h2 className={`text-lg font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>{node.name}</h2>
+              <span className={`px-2 py-0.5 rounded-full text-[11px] font-mono border ${
+                isTraditional
+                  ? "bg-gray-100 text-gray-700 border-gray-300"
+                  : "bg-slate-800 text-slate-300 border-slate-700"
+              }`}>
                 Prompt: {node.activePromptVersion}
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-1 leading-relaxed max-w-4xl">
+            <p className={`text-xs mt-1 leading-relaxed w-full ${isTraditional ? "text-gray-700" : "text-slate-400"}`}>
               <strong>节点目的：</strong>{node.purpose}
             </p>
           </div>
@@ -318,20 +334,28 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
             {currentResult && (
               <button
                 onClick={() => exportCurrentNodeMarkdown(node, resultsList, thread.title)}
-                className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center gap-1.5 transition-colors"
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium border flex items-center gap-1.5 transition-colors ${
+                  isTraditional
+                    ? "text-gray-800 bg-white hover:bg-gray-100 border-gray-300 shadow-xs"
+                    : "text-slate-300 bg-slate-800 hover:bg-slate-700 border-slate-700"
+                }`}
                 title="导出当前节点研判成果为 Markdown 文件"
               >
-                <Download className="w-3.5 h-3.5 text-blue-400" />
+                <Download className={`w-3.5 h-3.5 ${isTraditional ? "text-blue-600" : "text-blue-400"}`} />
                 <span className="hidden sm:inline">导出节点MD</span>
               </button>
             )}
 
             <button
               onClick={onOpenPromptManager}
-              className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center gap-1.5 transition-colors"
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium border flex items-center gap-1.5 transition-colors ${
+                isTraditional
+                  ? "text-gray-800 bg-white hover:bg-gray-100 border-gray-300 shadow-xs"
+                  : "text-slate-300 bg-slate-800 hover:bg-slate-700 border-slate-700"
+              }`}
               title="查看与修改本节点专属提示词"
             >
-              <Sliders className="w-3.5 h-3.5 text-amber-400" />
+              <Sliders className={`w-3.5 h-3.5 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
               <span>配置提示词</span>
             </button>
 
@@ -342,6 +366,8 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-md ${
                 !isPrevConfirmed
                   ? "bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700"
+                  : isTraditional
+                  ? "text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:brightness-105 active:brightness-95 shadow-blue-500/20"
                   : "text-slate-950 bg-gradient-to-r from-amber-400 to-yellow-400 hover:brightness-105 active:brightness-95 shadow-amber-500/20"
               }`}
             >
@@ -660,26 +686,42 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
               )}
 
               {/* Executive Summary Card */}
-              <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1.5">
-                <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">
+              <div className={`p-4 rounded-xl border space-y-1.5 transition-colors ${
+                isTraditional
+                  ? "bg-amber-50/90 border-amber-300 text-amber-950 shadow-xs"
+                  : "bg-amber-500/10 border-amber-500/30"
+              }`}>
+                <span className={`text-xs font-bold uppercase tracking-wider block ${
+                  isTraditional ? "text-amber-900" : "text-amber-300"
+                }`}>
                   执行要点与核心研判摘要 (Executive Summary)
                 </span>
-                <p className="text-xs text-slate-200 leading-relaxed">
+                <p className={`text-xs leading-relaxed ${
+                  isTraditional ? "text-gray-900 font-medium" : "text-slate-200"
+                }`}>
                   {currentResult.executiveSummary}
                 </p>
               </div>
 
               {/* Detailed Markdown Analysis */}
-              <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-slate-200 text-xs leading-relaxed max-h-[600px] overflow-y-auto prose prose-invert prose-sm max-w-none">
+              <div className={`p-6 rounded-2xl border text-xs leading-relaxed max-h-[600px] overflow-y-auto max-w-none transition-colors ${
+                isTraditional
+                  ? "bg-white border-gray-300 text-gray-900 prose prose-sm shadow-xs"
+                  : "bg-slate-900 border-slate-800 text-slate-200 prose prose-invert prose-sm"
+              }`}>
                 <ReactMarkdown>{currentResult.detailedFindingsMarkdown}</ReactMarkdown>
               </div>
 
               {/* Next Step Recommendation */}
-              <div className="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/80 flex items-center justify-between text-xs">
+              <div className={`p-3.5 rounded-xl border flex items-center justify-between text-xs transition-colors ${
+                isTraditional
+                  ? "bg-gray-50 border-gray-300 text-gray-800 shadow-xs"
+                  : "bg-slate-800/60 border-slate-700/80 text-slate-200"
+              }`}>
                 <div className="flex items-center gap-2">
-                  <ArrowRight className="w-4 h-4 text-amber-400" />
-                  <span className="text-slate-400">下一步推荐操作：</span>
-                  <span className="text-slate-200 font-medium">{currentResult.nextRecommendedStep}</span>
+                  <ArrowRight className={`w-4 h-4 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
+                  <span className={isTraditional ? "text-gray-600 font-medium" : "text-slate-400"}>下一步推荐操作：</span>
+                  <span className={`font-bold ${isTraditional ? "text-gray-900" : "text-slate-200"}`}>{currentResult.nextRecommendedStep}</span>
                 </div>
               </div>
             </div>
@@ -1078,6 +1120,13 @@ export const NodeResearchView: React.FC<NodeResearchViewProps> = ({
                 className="w-full h-36 p-3 rounded-xl bg-slate-950 border border-slate-700 text-slate-200 text-xs focus:outline-none focus:border-amber-400 resize-none leading-relaxed"
               />
             </div>
+
+            {correctionError && (
+              <div className="p-3 rounded-xl bg-red-900/30 border border-red-700/60 text-xs text-red-300 flex items-center gap-2">
+                <span className="font-bold">⚠️</span>
+                <span>{correctionError}</span>
+              </div>
+            )}
 
             <div className="flex items-center justify-end gap-3 pt-2">
               <button

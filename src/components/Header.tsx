@@ -94,9 +94,9 @@ export const Header: React.FC<HeaderProps> = ({
           : "bg-slate-900/95 border-slate-800 text-slate-200"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 h-16 flex items-center justify-between gap-4">
         {/* Logo & Core Title */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-blue-500 to-indigo-500 p-0.5 shadow-lg shadow-blue-500/20">
             <div className={`w-full h-full rounded-[10px] flex items-center justify-center ${isTraditional ? "bg-white" : "bg-slate-950"}`}>
               <span className={`font-extrabold text-base tracking-tighter font-mono ${isTraditional ? "text-blue-600" : "text-amber-400"}`}>
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({
                 自然语言运行定义 V1.0
               </span>
             </div>
-            <p className={`text-xs truncate max-w-md hidden sm:block ${isTraditional ? "text-gray-500" : "text-slate-400"}`}>
+            <p className={`text-xs truncate max-w-md xl:max-w-xl 2xl:max-w-2xl hidden sm:block ${isTraditional ? "text-gray-500" : "text-slate-400"}`}>
               {thread.title || "投资意图驱动 · 节点提示词管理 · 搜索验证 · 动态分支 · 人工逐层确认"}
             </p>
           </div>

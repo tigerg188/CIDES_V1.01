@@ -46,6 +46,7 @@ export const BranchResearchModal: React.FC<BranchResearchModalProps> = ({
     branch.recommendedAction || "将核验后的真实参数带回主线财务模型与制度条件节点，更新项目经济评价。"
   );
   const [errorInfo, setErrorInfo] = useState<{ status: string; code: string; message: string } | null>(null);
+  const [mergeError, setMergeError] = useState<string | null>(null);
   const [executionRecord, setExecutionRecord] = useState<any>(null);
   const [cooldownSeconds, setCooldownSeconds] = useState(0);
 
@@ -153,9 +154,10 @@ export const BranchResearchModal: React.FC<BranchResearchModalProps> = ({
 
   const handleConfirmMerge = () => {
     if (!findings.trim()) {
-      alert("请先执行分支研究以产出分析成果，再带回主线！");
+      setMergeError("请先执行分支研究以产出分析成果，再带回主线！");
       return;
     }
+    setMergeError(null);
     onMergeBranchToMainline(
       branch.id,
       modificationType,
@@ -407,6 +409,13 @@ export const BranchResearchModal: React.FC<BranchResearchModalProps> = ({
                 />
               </div>
             </div>
+          </div>
+        )}
+
+        {mergeError && (
+          <div className="p-3 rounded-xl bg-red-900/30 border border-red-700/60 text-xs text-red-300 flex items-center gap-2">
+            <span className="font-bold">⚠️</span>
+            <span>{mergeError}</span>
           </div>
         )}
 

@@ -42,12 +42,14 @@ export const FinalDecisionModal: React.FC<FinalDecisionModalProps> = ({
     thread.finalDecision?.criticalRedlines?.join("\n") ||
       "1. 若东道国修法要求外资无偿出让超过15%的国有股干股，立即终止交易\n2. 若电价超过0.10美元/kWh或无法保证85%以上开机率，项目财务不可行，即刻一票否决\n3. 严禁以现金形式结算任何无正式发票的政府性规费"
   );
+  const [validationError, setValidationError] = useState<string | null>(null);
 
   const handleSave = () => {
     if (!rationale.trim() || !decidedBy.trim()) {
-      alert("请填写决策依据与签署人名称！");
+      setValidationError("请填写完整的决策依据与签署人名称！");
       return;
     }
+    setValidationError(null);
 
     const record: FinalDecisionRecord = {
       decision: decisionType,
@@ -283,6 +285,13 @@ export const FinalDecisionModal: React.FC<FinalDecisionModalProps> = ({
             </div>
           </div>
         </div>
+
+        {validationError && (
+          <div className="p-3 rounded-xl bg-red-900/30 border border-red-700/60 text-xs text-red-300 flex items-center gap-2">
+            <span className="font-bold">⚠️</span>
+            <span>{validationError}</span>
+          </div>
+        )}
 
         {/* Footer */}
         <div className="flex items-center justify-between pt-3 border-t border-slate-800">

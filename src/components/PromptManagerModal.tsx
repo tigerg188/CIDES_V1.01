@@ -16,6 +16,7 @@ import {
   Tag,
 } from "lucide-react";
 import { ResearchNodeDefinition, PromptVersion, ProjectThread } from "../types/cides";
+import { ConfirmModal } from "./ConfirmModal";
 
 interface PromptManagerModalProps {
   thread: ProjectThread;
@@ -38,6 +39,8 @@ export const PromptManagerModal: React.FC<PromptManagerModalProps> = ({
   const [authorName, setAuthorName] = useState("投资合伙人 / 专家评审组");
   const [showHistory, setShowHistory] = useState(false);
   const [saveSuccessMsg, setSaveSuccessMsg] = useState<string | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [pendingRestoreVersion, setPendingRestoreVersion] = useState<PromptVersion | null>(null);
 
   // Sync state when switching active node
   const handleSelectNode = (nodeId: string) => {
@@ -47,15 +50,17 @@ export const PromptManagerModal: React.FC<PromptManagerModalProps> = ({
       setPromptText(node.activePrompt);
       setShowHistory(false);
       setSaveSuccessMsg(null);
+      setErrorMsg(null);
     }
   };
 
   // Save new version (Section 10.3 & Test 3)
   const handleSaveNewVersion = () => {
     if (!promptText.trim()) {
-      alert("提示词内容不能为空！");
+      setErrorMsg("提示词内容不能为空！");
       return;
     }
+    setErrorMsg(null);
 
     const currentVersions = currentNode.promptVersions || [];
     // Generate next version number e.g. V1.1, V1.2
@@ -100,14 +105,10 @@ export const PromptManagerModal: React.FC<PromptManagerModalProps> = ({
 
   // Restore previous version (Section 10.5 & Test 6)
   const handleRestoreVersion = (version: PromptVersion) => {
-    if (
-      !confirm(
-        `确定要将【${currentNode.name}】的提示词恢复至历史版本【${version.versionNumber}】吗？`
-      )
-    ) {
-      return;
-    }
+    setPendingRestoreVersion(version);
+  };
 
+  const executeRestoreVersion = (version: PromptVersion) => {
     const updatedVersions = currentNode.promptVersions.map((v) => ({
       ...v,
       isCurrent: v.versionId === version.versionId,
@@ -130,6 +131,7 @@ export const PromptManagerModal: React.FC<PromptManagerModalProps> = ({
     onUpdateNodes(updatedNodes, msg);
     setShowHistory(false);
     setSaveSuccessMsg(`已成功回滚恢复至版本 ${version.versionNumber}！`);
+    setPendingRestoreVersion(null);
     setTimeout(() => setSaveSuccessMsg(null), 4000);
   };
 
@@ -375,6 +377,13 @@ export const PromptManagerModal: React.FC<PromptManagerModalProps> = ({
           </div>
         </div>
 
+        {errorMsg && (
+          <div className="p-3 rounded-xl bg-red-900/30 border border-red-700/60 text-xs text-red-300 flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+            <span>{errorMsg}</span>
+          </div>
+        )}
+
         {/* Footer */}
         <div className="flex items-center justify-between pt-3 border-t border-slate-800">
           <div className="text-[11px] text-slate-500 font-mono hidden sm:block">
@@ -401,6 +410,18 @@ export const PromptManagerModal: React.FC<PromptManagerModalProps> = ({
           </div>
         </div>
       </div>
+
+      {pendingRestoreVersion && (
+        <ConfirmModal
+          isOpen={!!pendingRestoreVersion}
+          title="回滚恢复提示词历史版本"
+          message={`确定要将【${currentNode.name}】的提示词恢复至历史版本【${pendingRestoreVersion.versionNumber}】吗？恢复后将以此版本作为节点活动提示词。`}
+          confirmText="确认回滚恢复"
+          variant="warning"
+          onConfirm={() => executeRestoreVersion(pendingRestoreVersion)}
+          onCancel={() => setPendingRestoreVersion(null)}
+        />
+      )}
     </div>
   );
 };

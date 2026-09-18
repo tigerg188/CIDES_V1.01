@@ -28,6 +28,7 @@ import { EvidenceInspectorModal } from "./components/EvidenceInspectorModal";
 import { BranchResearchModal } from "./components/BranchResearchModal";
 import { ExportArchiveModal } from "./components/ExportArchiveModal";
 import { ProjectManagerModal } from "./components/ProjectManagerModal";
+import { ConfirmModal } from "./components/ConfirmModal";
 import {
   ProjectThread,
   ResearchNodeDefinition,
@@ -58,6 +59,7 @@ export default function App() {
   // Re-evaluation loading state
   const [isReEvaluatingNode, setIsReEvaluatingNode] = useState(false);
   const [reEvaluatingMessage, setReEvaluatingMessage] = useState("");
+  const [reReasonError, setReReasonError] = useState<string | null>(null);
 
   const handleCreateNewProject = () => {
     const fresh = createNewThread();
@@ -260,9 +262,11 @@ export default function App() {
       };
 
       handleUpdateThread(finalThread);
+      setSelectedNodeId(parentNodeId);
+      setCurrentView("nodes");
     } catch (err: any) {
       console.error("Re-evaluation error:", err);
-      alert(`主线重新推理提醒：${err.message || "请求异常，请检查网络或稍后重试"}`);
+      setReReasonError(`主线重新推理提醒：${err.message || "请求异常，请检查网络或稍后重试"}`);
     } finally {
       setIsReEvaluatingNode(false);
       setReEvaluatingMessage("");
@@ -321,7 +325,7 @@ export default function App() {
       />
 
       {/* Main App Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      <main className="flex-1 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 py-6 space-y-6">
         {/* Re-evaluation Live Banner */}
         {isReEvaluatingNode && (
           <div className="p-4 rounded-2xl bg-purple-950/90 border border-purple-500/80 shadow-lg shadow-purple-950/50 flex items-center justify-between gap-4 animate-pulse">
@@ -342,7 +346,7 @@ export default function App() {
 
         {/* Navigation Bar */}
         <div
-          className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-3 transition-colors ${
+          className={`flex flex-wrap items-center justify-between gap-3 border-b pb-3 transition-colors ${
             isTraditional ? "border-gray-200" : "border-slate-800"
           }`}
         >
@@ -537,7 +541,7 @@ export default function App() {
                 <p className="text-xs font-medium">暂无活跃分支。在主线各节点研究过程中，若识别出关键要素矛盾，将自动提议生成分支。</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
                 {thread.activeBranches.map((branch) => {
                   const isMerged = branch.status === "merged_to_mainline";
                   return (
@@ -796,6 +800,18 @@ export default function App() {
           onClose={() => setShowProjectManagerModal(false)}
           onSelectProject={handleSelectProjectFromManager}
           onNewProject={handleCreateNewProject}
+        />
+      )}
+
+      {reReasonError && (
+        <ConfirmModal
+          isOpen={!!reReasonError}
+          title="重新推理提醒"
+          message={reReasonError}
+          confirmText="知道了"
+          variant="warning"
+          onConfirm={() => setReReasonError(null)}
+          onCancel={() => setReReasonError(null)}
         />
       )}
     </div>

@@ -563,78 +563,110 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
           </div>
 
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-200 flex items-center gap-2">
-              <BookmarkPlus className="w-4 h-4 text-amber-400" />
+            <h3 className={`text-sm font-bold flex items-center gap-2 ${isTraditional ? "text-gray-900" : "text-slate-200"}`}>
+              <BookmarkPlus className={`w-4 h-4 ${isTraditional ? "text-blue-600" : "text-amber-400"}`} />
               投资意图12核心维度识别拆解清单
             </h3>
-            <span className="text-xs text-slate-400 font-mono">
+            <span className={`text-xs font-mono ${isTraditional ? "text-gray-700 font-bold" : "text-slate-400"}`}>
               状态：{thread.isIntentConfirmed ? "已正式确认" : "待用户确认/纠偏"}
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-3.5">
             {/* 1. 投资对象 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1">
-              <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-blue-700" : "text-amber-400"}`}>
                 ① 投资对象 (Target)
               </span>
-              <p className="text-xs font-medium text-slate-100">{intent.target || "未明确指定"}</p>
+              <p className={`text-xs font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>{intent.target || "未明确指定"}</p>
             </div>
 
             {/* 2. 投资目的 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1">
-              <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-blue-700" : "text-amber-400"}`}>
                 ② 投资目的 (Purpose)
               </span>
-              <p className="text-xs font-medium text-slate-100">{intent.purpose || "未明确指定"}</p>
+              <p className={`text-xs font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>{intent.purpose || "未明确指定"}</p>
             </div>
 
             {/* 3. 投资区域/国家 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1">
-              <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-blue-700" : "text-amber-400"}`}>
                 ③ 投资区域/国家 (Region)
               </span>
-              <p className="text-xs font-medium text-slate-100">{intent.region || "未明确指定"}</p>
+              <p className={`text-xs font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>{intent.region || "未明确指定"}</p>
             </div>
 
             {/* 4. 项目类型 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1">
-              <span className="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-teal-700" : "text-cyan-400"}`}>
                 ④ 项目类型 (Project Type)
               </span>
-              <p className="text-xs font-medium text-slate-100">{intent.projectType || "绿地/并购"}</p>
+              <p className={`text-xs font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>{intent.projectType || "绿地/并购"}</p>
             </div>
 
             {/* 5. 预期规模 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1">
-              <span className="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-teal-700" : "text-cyan-400"}`}>
                 ⑤ 预期规模 (Scale)
               </span>
-              <p className="text-xs font-medium text-slate-100">{intent.scale || "中大型规模"}</p>
+              <p className={`text-xs font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>{intent.scale || "中大型规模"}</p>
             </div>
 
             {/* 6. 资本来源或资金属性 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1">
-              <span className="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-teal-700" : "text-cyan-400"}`}>
                 ⑥ 资本来源/属性 (Capital)
               </span>
-              <p className="text-xs font-medium text-slate-100">{intent.capitalSource || "中资境外投资"}</p>
+              <p className={`text-xs font-bold ${isTraditional ? "text-gray-900" : "text-slate-100"}`}>{intent.capitalSource || "中资境外投资"}</p>
             </div>
 
             {/* 7. 资源条件 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1 md:col-span-2 lg:col-span-3">
-              <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1 md:col-span-2 lg:col-span-3 xl:col-span-2 2xl:col-span-3 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-200"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-emerald-700" : "text-emerald-400"}`}>
                 ⑦ 资源条件与要素需求 (Resources & Utilities)
               </span>
-              <p className="text-xs text-slate-200">{intent.resources || "品位、电力负荷、供水与交通"}</p>
+              <p className={`text-xs ${isTraditional ? "text-gray-900 font-medium" : "text-slate-200"}`}>{intent.resources || "品位、电力负荷、供水与交通"}</p>
             </div>
 
             {/* 8. 用户已掌握条件 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1.5">
-              <span className="text-[11px] font-semibold text-blue-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1.5 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-indigo-700" : "text-blue-400"}`}>
                 ⑧ 用户已掌握条件
               </span>
-              <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside">
+              <ul className={`text-xs space-y-1 list-disc list-inside ${isTraditional ? "text-gray-800 font-medium" : "text-slate-300"}`}>
                 {intent.knownConditions?.map((item, idx) => (
                   <li key={idx} className="leading-snug">{item}</li>
                 ))}
@@ -642,11 +674,15 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
             </div>
 
             {/* 9. 用户已有判断 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1.5">
-              <span className="text-[11px] font-semibold text-blue-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1.5 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-indigo-700" : "text-blue-400"}`}>
                 ⑨ 用户已有判断与假设
               </span>
-              <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside">
+              <ul className={`text-xs space-y-1 list-disc list-inside ${isTraditional ? "text-gray-800 font-medium" : "text-slate-300"}`}>
                 {intent.existingHypotheses?.map((item, idx) => (
                   <li key={idx} className="leading-snug">{item}</li>
                 ))}
@@ -654,11 +690,15 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
             </div>
 
             {/* 10. 用户的核心关注点 */}
-            <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/80 space-y-1.5">
-              <span className="text-[11px] font-semibold text-blue-400 uppercase tracking-wider">
+            <div className={`p-3.5 rounded-xl border space-y-1.5 transition-colors ${
+              isTraditional
+                ? "bg-white border-gray-300 text-gray-900 shadow-xs"
+                : "bg-slate-800/70 border-slate-700/80 text-slate-100"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider ${isTraditional ? "text-indigo-700" : "text-blue-400"}`}>
                 ⑩ 用户的核心关注点 / 红线
               </span>
-              <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside">
+              <ul className={`text-xs space-y-1 list-disc list-inside ${isTraditional ? "text-gray-800 font-medium" : "text-slate-300"}`}>
                 {intent.coreConcerns?.map((item, idx) => (
                   <li key={idx} className="leading-snug">{item}</li>
                 ))}
@@ -666,12 +706,16 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
             </div>
 
             {/* 11. 隐含研究问题 */}
-            <div className="p-3.5 rounded-xl bg-purple-950/30 border border-purple-800/40 space-y-1.5 md:col-span-1 lg:col-span-1">
-              <span className="text-[11px] font-semibold text-purple-400 uppercase tracking-wider flex items-center gap-1">
+            <div className={`p-3.5 rounded-xl border space-y-1.5 md:col-span-1 lg:col-span-1 xl:col-span-1 2xl:col-span-1 transition-colors ${
+              isTraditional
+                ? "bg-purple-50/70 border-purple-200 text-purple-950 shadow-xs"
+                : "bg-purple-950/30 border-purple-800/40 text-purple-200/90"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 ${isTraditional ? "text-purple-800" : "text-purple-400"}`}>
                 <HelpCircle className="w-3.5 h-3.5" />
                 ⑪ 用户隐含的研究问题
               </span>
-              <ul className="text-xs text-purple-200/90 space-y-1 list-disc list-inside">
+              <ul className={`text-xs space-y-1 list-disc list-inside ${isTraditional ? "text-purple-900 font-medium" : "text-purple-200/90"}`}>
                 {intent.implicitQuestions?.map((item, idx) => (
                   <li key={idx} className="leading-snug">{item}</li>
                 ))}
@@ -679,12 +723,16 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
             </div>
 
             {/* 12. 遗漏的重要关键问题 */}
-            <div className="p-3.5 rounded-xl bg-rose-950/30 border border-rose-800/40 space-y-1.5 md:col-span-2 lg:col-span-2">
-              <span className="text-[11px] font-semibold text-rose-400 uppercase tracking-wider flex items-center gap-1">
+            <div className={`p-3.5 rounded-xl border space-y-1.5 md:col-span-2 lg:col-span-2 xl:col-span-2 2xl:col-span-3 transition-colors ${
+              isTraditional
+                ? "bg-rose-50/70 border-rose-200 text-rose-950 shadow-xs"
+                : "bg-rose-950/30 border-rose-800/40 text-rose-200/90"
+            }`}>
+              <span className={`text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 ${isTraditional ? "text-rose-800" : "text-rose-400"}`}>
                 <ShieldAlert className="w-3.5 h-3.5" />
                 ⑫ 用户可能遗漏但决定投资成败的关键问题
               </span>
-              <ul className="text-xs text-rose-200/90 space-y-1 list-disc list-inside">
+              <ul className={`text-xs space-y-1 list-disc list-inside ${isTraditional ? "text-rose-900 font-medium" : "text-rose-200/90"}`}>
                 {intent.omittedCriticalQuestions?.map((item, idx) => (
                   <li key={idx} className="leading-snug">{item}</li>
                 ))}
@@ -693,14 +741,18 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
           </div>
 
           {/* Action call to confirm or enter research */}
-          <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className={`p-4 rounded-xl border flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors ${
+            isTraditional
+              ? "bg-amber-50/80 border-amber-300 text-amber-950 shadow-xs"
+              : "bg-amber-500/10 border-amber-500/30"
+          }`}>
             <div className="space-y-0.5 text-center sm:text-left">
-              <span className="text-xs font-semibold text-amber-300">
+              <span className={`text-xs font-bold ${isTraditional ? "text-amber-900" : "text-amber-300"}`}>
                 {thread.isIntentConfirmed
                   ? "已确立正式研究基线，可按照专业节点主线开展智能研究"
                   : "依据《CIDES V1.0》第四节硬性规则：必须经人工确认或纠偏后方可升级为正式研究基线"}
               </span>
-              <p className="text-[11px] text-slate-400">
+              <p className={`text-[11px] ${isTraditional ? "text-gray-700 font-medium" : "text-slate-400"}`}>
                 {thread.isIntentConfirmed
                   ? "基线已锁定并传入所有节点提示词执行上下文。"
                   : "防止AI把自身猜测当成永久正确，支持增删改查研究边界。"}
@@ -710,7 +762,11 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
             <div className="flex items-center gap-3 shrink-0">
               <button
                 onClick={() => setShowConfirmModal(true)}
-                className="px-4 py-2 rounded-lg text-xs font-medium text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-colors"
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors ${
+                  isTraditional
+                    ? "text-gray-800 bg-white hover:bg-gray-100 border border-gray-300 shadow-xs"
+                    : "text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-600"
+                }`}
               >
                 {thread.isIntentConfirmed ? "重新审查/纠偏基线" : "人工确认与纠偏"}
               </button>
@@ -718,7 +774,11 @@ export const IntentWorkspace: React.FC<IntentWorkspaceProps> = ({
               {thread.isIntentConfirmed && (
                 <button
                   onClick={onProceedToNodes}
-                  className="px-5 py-2 rounded-lg text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 transition-colors flex items-center gap-1.5 shadow-md shadow-amber-400/20"
+                  className={`px-5 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 shadow-md ${
+                    isTraditional
+                      ? "text-white bg-blue-600 hover:bg-blue-700 shadow-blue-600/20"
+                      : "text-slate-950 bg-amber-400 hover:bg-amber-300 shadow-amber-400/20"
+                  }`}
                 >
                   <span>进入节点研究主线</span>
                   <ArrowRight className="w-3.5 h-3.5" />

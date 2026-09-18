@@ -74,7 +74,7 @@ export const ExportArchiveModal: React.FC<ExportArchiveModalProps> = ({
           onClose();
         }, 1200);
       } catch (err: any) {
-        alert("载入档案失败: " + err.message);
+        showFeedback("❌ 载入档案失败: " + (err.message || "文件格式不正确"));
       }
     };
     reader.readAsText(file);
@@ -87,7 +87,7 @@ export const ExportArchiveModal: React.FC<ExportArchiveModalProps> = ({
       await exportFullResearchReportDocx(thread);
       showFeedback("✅ Word 研判档案 (.docx) 导出成功，Windows Word 可直接打开！");
     } catch (e: any) {
-      alert("导出 Word 失败: " + e.message);
+      showFeedback("❌ 导出 Word 失败: " + (e.message || "格式解析异常"));
     } finally {
       setIsExportingDocx(false);
     }
